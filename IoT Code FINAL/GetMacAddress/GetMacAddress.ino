@@ -27,4 +27,4 @@ void loop() {
 
 
 //http://openwifi
-//Add your MAC Address to get access to open wifi @ Microsoft
+//Add your MAC Address to get access to open wifi
