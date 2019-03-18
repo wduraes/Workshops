@@ -6,7 +6,7 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ80
 void setup() {
   pinMode(13,OUTPUT);
   pixels.begin();
-  pixels.setBrightness(153);
+  //pixels.setBrightness(153);
   pixels.show();
 
   pixels.setPixelColor(0,75,0,0);
