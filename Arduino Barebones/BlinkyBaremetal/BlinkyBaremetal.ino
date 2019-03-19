@@ -13,5 +13,5 @@ void loop() {
   delay(80);
   digitalWrite(9,LOW);
   delay(80);
-  Serial.println("jambo123")
+  Serial.println("jambo123");
 }
