@@ -65,187 +65,177 @@
    
   void setup() {
     
-    pinMode(5,INPUT);
-    attachInterrupt(digitalPinToInterrupt(5),MyInterruptHandler,RISING);
+  pinMode(5,INPUT);
+  attachInterrupt(digitalPinToInterrupt(5),MyInterruptHandler,RISING);
     
-    Serial.begin(115200);
-    delay(10); 
-    pinMode(A0, INPUT); //LDR
-    pinMode(5, INPUT); //Key 2
-    pinMode(16, INPUT); //Key 1 
+  Serial.begin(115200);
+  delay(10); 
+  pinMode(A0, INPUT); //LDR
+  pinMode(5, INPUT); //Key 2
+  pinMode(16, INPUT); //Key 1 
   
-    // Connect to WiFi access point.
-    Serial.println(); Serial.println();
-    Serial.print("Connecting to ");
-    Serial.println(WLAN_SSID);
+  // Connect to WiFi access point.
+  Serial.println(); Serial.println();
+  Serial.print("Connecting to ");
+  Serial.println(WLAN_SSID);
   
-    WiFi.begin(WLAN_SSID, WLAN_PASS);
-    while (WiFi.status() != WL_CONNECTED) {
+  WiFi.begin(WLAN_SSID, WLAN_PASS);
+  while (WiFi.status() != WL_CONNECTED) 
+    {
       delay(500);
       Serial.print(".");
-      }
-    Serial.println();
-    Serial.println("WiFi connected");
-    Serial.println("IP address: "); Serial.println(WiFi.localIP());
-      tone(14, 1000);
-      delay(200);
-      tone(14, 800);
-      delay(200);
-      noTone(14);
+    }
+  Serial.println();
+  Serial.println("WiFi connected");
+  Serial.println("IP address: "); Serial.println(WiFi.localIP());
+    
+  //tone connected to WiFi
+  tone(14, 1000);
+  delay(200);
+  tone(14, 800);
+  delay(200);
+  noTone(14);
   
-    // Setup MQTT subscriptions for all feeds.
-    mqtt.subscribe(&read_email);
+  // Setup MQTT subscriptions for all feeds.
+  mqtt.subscribe(&read_email);
         
-    dht.begin();
+  dht.begin();
 
-    pixels.begin();
-    pixels.setBrightness(153);
-    pixels.show();
+  pixels.begin();
+  pixels.setBrightness(153);
+  pixels.show();
 
-    self_test();
+  self_test();
   }
      
-  void loop() {
+  void loop() 
+  {
   
-    MQTT_connect();
-    sensors_event_t event;  
+  MQTT_connect();
+  sensors_event_t event;  
    
-    Adafruit_MQTT_Subscribe *subscription;
-    while ((subscription = mqtt.readSubscription(10000))) 
-    {
+  Adafruit_MQTT_Subscribe *subscription;
+  while ((subscription = mqtt.readSubscription(10000))) 
+  {
       
      //inside this while loop we'll check if there is any news to feeds we subscribe to
      //limited to 5 subscriptions by default
       
-      if (strcmp((char *)read_email.lastread, "YES") == 0) 
-      {
-          unread_email = true;
-          pixels.setPixelColor(0,255,0,0);
-          pixels.setPixelColor(1,255,0,0);
-          pixels.setPixelColor(2,255,0,0);
-          pixels.show();
-      }
-      if (strcmp((char *)read_email.lastread, "NO") == 0) 
-      {
-          unread_email = false;
-          pixels.setPixelColor(0,0,255,0);
-          pixels.setPixelColor(1,0,255,0);
-          pixels.setPixelColor(2,0,255,0);
-          pixels.show();          
-      }
+    if (strcmp((char *)read_email.lastread, "YES") == 0) 
+    {
+      unread_email = true;
+      pixels.setPixelColor(0,255,0,0);
+      pixels.setPixelColor(1,255,0,0);
+      pixels.setPixelColor(2,255,0,0);
+      pixels.show();
     }
-     
-    // Now we can publish stuff!
+    if (strcmp((char *)read_email.lastread, "NO") == 0) 
+    {
+      unread_email = false;
+      pixels.setPixelColor(0,0,255,0);
+      pixels.setPixelColor(1,0,255,0);
+      pixels.setPixelColor(2,0,255,0);
+      pixels.show();          
+    }
+  }
+    
+  // Now we can publish stuff!
   
-    float Light = analogRead(A0);
+  float Light = analogRead(A0);
 
-    Serial.print(F("\nSending light val "));
-    Serial.print(Light);
-    Serial.print("...");
-    if (! light.publish(Light)) 
-    {
-        Serial.println(F("Failed"));
-    } 
-    else 
-    {
-        Serial.println(F("OK!"));
-    }
+  Serial.print(F("\nSending light val "));
+  Serial.print(Light);
+  Serial.print("...");
+  if (light.publish(Light)) 
+  {
+    Serial.println(F("OK!"));
+  }
     
-    
-    dht.temperature().getEvent(&event);   
-    //checking for non-number values BEFORE publishing
+  dht.temperature().getEvent(&event);   
+  
+  //checking for non-number values BEFORE publishing
     Serial.print(F("\nSending temperature val "));
     Serial.print(event.temperature);
     Serial.print("...");
-    if(!isnan(event.temperature))
+  if(!isnan(event.temperature))
+  {
+    if (temperature.publish(event.temperature)) 
     {
-      if (! temperature.publish(event.temperature)) 
-      {
-          Serial.println(F("Failed"));
-      }
-      else 
-      {
-          Serial.println(F("OK!"));
-      }
+      Serial.println(F("OK!"));
     }
+  }
     
-    
-    dht.humidity().getEvent(&event);
-    //checking for non-number values BEFORE publishing
+  dht.humidity().getEvent(&event);
+  //checking for non-number values BEFORE publishing
     Serial.print(F("\nSending humidity val "));
     Serial.print(event.relative_humidity);
     Serial.print("...");
     
-    if(!isnan(event.relative_humidity))
+  if(!isnan(event.relative_humidity))
+  {
+    if (humidity.publish(event.relative_humidity)) 
     {
-        if (! humidity.publish(event.relative_humidity)) 
-        {
-          Serial.println(F("Failed"));
-        }
-        else 
-        {
-          Serial.println(F("OK!"));
-        }
+      Serial.println(F("OK!"));
     }
-
-      if(unread_email)
-      {
-          tone(14, 1600);
-          delay(300);
-          noTone(14);
-          delay(150);
-          tone(14, 1600);
-          delay(300);
-          noTone(14);   
-      }
-      else
-      {  
-        if (! send_email.publish("NO")) 
-          {
-             Serial.println(F("Failed"));
-          }
-        else 
-          {
-             Serial.println(F("OK!"));
-          }
   }
-  
+
+  if(unread_email)
+  {
+    tone(14, 1600);
+    delay(300);
+    noTone(14);
+    delay(150);
+    tone(14, 1600);
+    delay(300);
+    noTone(14);   
+  }
+  else
+  {  
+    if (send_email.publish("NO")) 
+    {
+      Serial.println(F("OK!"));
+    }
+  }  
 }
   
 
-  // Function to connect and reconnect as necessary to the MQTT server.
-  // Should be called in the loop function and it will take care if connecting.
-  void MQTT_connect() {
-    
-    int8_t ret;
-    if (mqtt.connected()) {      // Stop if already connected.
-      return;
-      }
-    Serial.print("Connecting to MQTT... ");
-    uint8_t retries = 3;
-    while ((ret = mqtt.connect()) != 0) { // connect will return 0 for connected
-         Serial.println(mqtt.connectErrorString(ret));
-         Serial.println("Retrying MQTT connection in 5 seconds...");
-         mqtt.disconnect();
-         delay(5000);  // wait 5 seconds
-         retries--;
-         if (retries == 0) {
-           // basically die and wait for WDT to reset me
-           while (1);
-         }
-    }
-    Serial.println("MQTT Connected!");
-      tone(14, 1200);
-      delay(200);
-      noTone(14);
-      delay(50);
-      tone(14, 1200);
-      delay(200);
-      noTone(14);
+// Function to connect and reconnect as necessary to the MQTT server.
+// Should be called in the loop function and it will take care if connecting.
+void MQTT_connect() 
+{
+  int8_t ret;
+  if (mqtt.connected()) 
+  {      // Stop if already connected.
+    return;
   }
+  Serial.print("Connecting to MQTT... ");
+  uint8_t retries = 3;
+  while ((ret = mqtt.connect()) != 0) 
+  { // connect will return 0 for connected
+    Serial.println(mqtt.connectErrorString(ret));
+    Serial.println("Retrying MQTT connection in 5 seconds...");
+    mqtt.disconnect();
+    delay(5000);  // wait 5 seconds
+    retries--;
+    if (retries == 0) 
+    {
+      // basically die and wait for WDT to reset me
+      while (1);
+    }
+  }
+  
+  Serial.println("MQTT Connected!");
+    tone(14, 1200);
+    delay(200);
+    noTone(14);
+    delay(50);
+    tone(14, 1200);
+    delay(200);
+    noTone(14);
+}
 
-void self_test(){
-
+void self_test()
+{
   pixels.setPixelColor(0,255,0,0);
   pixels.setPixelColor(1,255,0,0);
   pixels.setPixelColor(2,255,0,0);
@@ -262,11 +252,11 @@ void self_test(){
   pixels.show();
 }
 
-  void MyInterruptHandler()
-  {
-    unread_email = false;
-    pixels.setPixelColor(0,0,255,0);
-    pixels.setPixelColor(1,0,255,0);
-    pixels.setPixelColor(2,0,255,0);
-    pixels.show(); 
-  }
+void MyInterruptHandler()
+{
+  unread_email = false;
+  pixels.setPixelColor(0,0,255,0);
+  pixels.setPixelColor(1,0,255,0);
+  pixels.setPixelColor(2,0,255,0);
+  pixels.show(); 
+}
