@@ -10,8 +10,8 @@ void setup() {
 
 void loop() {
   digitalWrite(9,HIGH);
-  delay(80);
+  delay(280);
   digitalWrite(9,LOW);
-  delay(80);
+  delay(280);
   Serial.println("jambo123");
 }
