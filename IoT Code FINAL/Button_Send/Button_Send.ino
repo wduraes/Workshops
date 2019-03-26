@@ -10,15 +10,15 @@
   #include "Adafruit_MQTT.h"
   #include "Adafruit_MQTT_Client.h"
   #include "SPI.h"
-  #define WLAN_SSID       "Wd mobile"
-  #define WLAN_PASS       "Strugidinho12"
+  #define WLAN_SSID       "SSID"
+  #define WLAN_PASS       "Password"
   #define AIO_SERVER      "io.adafruit.com"
-  #define AIO_USERNAME    "wduraes"
-  #define AIO_KEY         "5e19860543934be6b061e65fe3af1cdc"
-  #define AIO_SERVERPORT  8883     // use 8883 for SSL
-  //#define AIO_SERVERPORT  1883                   
-  //WiFiClient client;
-  WiFiClientSecure client;  // use WiFiFlientSecure for SSL
+  #define AIO_USERNAME    "account name"
+  #define AIO_KEY         "key"
+  //#define AIO_SERVERPORT  8883     // use 8883 for SSL
+  #define AIO_SERVERPORT  1883                   
+  WiFiClient client;
+  //WiFiClientSecure client;  // use WiFiFlientSecure for SSL
 
   Adafruit_MQTT_Client mqtt(&client, AIO_SERVER, AIO_SERVERPORT, AIO_USERNAME, AIO_KEY);
   Adafruit_MQTT_Publish relay1 = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/IoT_Button");
