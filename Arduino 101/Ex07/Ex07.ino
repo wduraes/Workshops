@@ -8,6 +8,6 @@ void setup() {
 void loop() {
   pos = map(analogRead(A0),0,1023,0,180);
   myservo.write(pos);    
-  delay(30);
+  delay(230);
 }
 
