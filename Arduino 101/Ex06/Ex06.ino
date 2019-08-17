@@ -1,3 +1,5 @@
+
+
 #include <Servo.h>
 Servo myservo; 
 
@@ -10,4 +12,3 @@ void loop() {
   myservo.write(180);
   delay(1000);        
 }
-

@@ -16,9 +16,9 @@
   #define AIO_SERVER      "io.adafruit.com"
   #define AIO_USERNAME    "xxxxx"
   #define AIO_KEY         "xxxx"
-  //#define AIO_SERVERPORT  8883     // use 8883 for SSL
   #define AIO_SERVERPORT  1883                   
   WiFiClient client;
+  //#define AIO_SERVERPORT  8883     // use 8883 for SSL
   //WiFiClientSecure client;  // use WiFiFlientSecure for SSL
 
   Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);

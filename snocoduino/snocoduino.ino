@@ -9,48 +9,48 @@ void setup() {
   //pixels.setBrightness(153);
   pixels.show();
 
-  pixels.setPixelColor(0,75,0,0);
+  pixels.setPixelColor(0,100,0,0);
   pixels.show();
-  delay(500);
+  delay(1500);
   pixels.setPixelColor(0,0,0,0);
   pixels.show();
   delay(500);
-  pixels.setPixelColor(0,75,75,0);
+  pixels.setPixelColor(0,0,100,0);
   pixels.show();
-  delay(500);
+  delay(1500);
   pixels.setPixelColor(0,0,0,0);
   pixels.show();
   delay(500);
-  pixels.setPixelColor(0,0,75,0);
+  pixels.setPixelColor(0,0,0,150);
   pixels.show();
-  delay(500);
+  delay(1500);
   pixels.setPixelColor(0,0,0,0);
   pixels.show();
   delay(500);
-  pixels.setPixelColor(0,0,75,75);
+  pixels.setPixelColor(0,0,150,150);
   pixels.show();
-  delay(500);
+  delay(1500);
   pixels.setPixelColor(0,0,0,0);
   pixels.show();
   delay(500);
-  pixels.setPixelColor(0,75,0,75);
+  pixels.setPixelColor(0,150,150,0);
   pixels.show();
-  delay(500);  
+  delay(1500);  
   pixels.setPixelColor(0,0,0,0);
   pixels.show();
   delay(500);
-  pixels.setPixelColor(0,75,75,75);
+  pixels.setPixelColor(0,150,150,150);
   pixels.show();
-  delay(500);
+  delay(1500);
 }
 
 void loop() {
   digitalWrite(13,HIGH);
   pixels.setPixelColor(0,0,0,0);
   pixels.show();
-  delay(700);
+  delay(300);
   digitalWrite(13,LOW);
   pixels.setPixelColor(0,55,0,0);
   pixels.show();
-  delay(700);
+  delay(300);
 }
