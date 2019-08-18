@@ -9,11 +9,11 @@ void setup() {
 void loop() {
   if(digitalRead(2)==LOW && pressed==0)
   {
+    pressed = 1;
     counter++;
     Serial.println(counter);
-    pressed = 1;
   }
-  else if(pressed==1)   
+  else if(digitalRead(2)==HIGH && pressed==1)   
   {
     pressed = 0;
     delay(200);

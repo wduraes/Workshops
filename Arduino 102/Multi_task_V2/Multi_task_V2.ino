@@ -21,7 +21,8 @@ bool state6 = 0;
  
 void print_time(unsigned long time_millis);
  
-void setup() {
+void setup() 
+{
     pinMode(13,OUTPUT);
     pinMode(12,OUTPUT);
     pinMode(11,OUTPUT);
@@ -30,7 +31,9 @@ void setup() {
     pinMode(8,OUTPUT);
 }
  
-void loop() {
+void loop() 
+{
+    //control timer for process 1, which will be activated every 40ms
     if(millis() > time_1 + INTERVAL_MESSAGE1){
         time_1 = millis();
         print_time(time_1);
@@ -38,6 +41,7 @@ void loop() {
         digitalWrite(13,state1);
     }
    
+    //control timer for process 2, which will be activated every 70ms
     if(millis() > time_2 + INTERVAL_MESSAGE2){
         time_2 = millis();
         print_time(time_2);
