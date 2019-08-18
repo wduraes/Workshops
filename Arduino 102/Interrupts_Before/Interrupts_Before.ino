@@ -8,21 +8,17 @@ void setup()
   
   // initialize the pushbutton pin as an input:
   pinMode(2, INPUT_PULLUP);
-
-  // Attach an interrupt to the ISR vector
-  attachInterrupt(0, pin_ISR, FALLING);
 }
 
 void loop()
 {
   digitalWrite(13,LOW);
-  delay(500);
+  delay(1000);
   digitalWrite(13,HIGH);
-  delay(500);
-}
+  delay(1000);
 
-void pin_ISR()
-{
-  //buttonState = digitalRead(buttonPin);
-  digitalWrite(8,HIGH);
+  if(digitalRead(2)==LOW)
+  {
+    digitalWrite(8,HIGH);
+  }
 }
