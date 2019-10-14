@@ -11,11 +11,11 @@
   #include <Adafruit_NeoPixel.h>
   #define PIN            2
   #define NUMPIXELS      3
-  #define WLAN_SSID       "xxxx"
-  #define WLAN_PASS       "xxxx"
+  #define WLAN_SSID       "Wd mobile"
+  #define WLAN_PASS       "Strugidinho12"
   #define AIO_SERVER      "io.adafruit.com"
-  #define AIO_USERNAME    "xxxxx"
-  #define AIO_KEY         "xxxx"
+  #define AIO_USERNAME  "wduraes"
+  #define AIO_KEY       "078e68ac59a4425a9808a8aaea80c99d"
   #define AIO_SERVERPORT  1883                   
   WiFiClient client;
   //#define AIO_SERVERPORT  8883     // use 8883 for SSL
