@@ -1,52 +1,69 @@
-## Workshops at Snoco Makerspace
+## SnocoDuino
 
-This is the main repo for all my workshop collateral. Here, you'll find for each workshop I host: 
+Simply put, Snocoduino is Snoco Makerspace implementation of the famous Arduino Uno board. 
+As a matter of fact, it was modeled after the Arduino Nano Schematics with a twist.
+Arduino and all its different boards are open hardware meaning that it’s schematics are available for free and there are no “special” components making it hard / impossible to recreate. 
 
-- Classroom collateral
-- Pre-workshop checklist
-- Sample Code
-- Assembly Instructions
-- BOM (bill of material)
-- Schematics
-- Link to Easy EDA so you can copy and modify schematics and PCB
-- Parts Design
-- Link to OnShape so you can copy and modify 3D designs
-- Addtional information
+  ![SnocoDuino Picture](Images/Snocoduino_Picture.PNG)
 
-## Where can I find the workshop schedule?
+## Sconoduino Characteristics:
+- Microcontroller: ATmega328
+- Operating Voltage: 5V
+- Input Voltage (recommended): 7-12V
+- Input Voltage (limits): 6-20V
+- Digital I/O Pins: 14 (of which 6 provide PWM output)
+- Analog Input Pins: 6
+- DC Current per I/O Pin: 40 mA
+- DC Current for 3.3V Pin: 50 mA
+- Flash Memory: 32 KB of which 0.5 KB used by bootloader
+- SRAM: 2 KB (ATmega328)
+- EEPROM: 1 KB (ATmega328)
+- Clock Speed: 16 MHz
 
-At Snoco Makerspace we use Meetup to schedule all out Workshops. Please visit the link below to find the most updated information:
+## What is different in a Snocoduino?
+- NeoPixel connected to Pin 8
+- Jumper to disconnect NeoPixel, and use pin 8 for any other purpose if desired
+- FT232RL FTDI chip to perform USB to Serial conversion (which doesn't require additional drivers as Arduino IDE already support it) 
+- Micro USB port
+- Screw power terminals
 
-[Meetup](https://www.meetup.com/SnoCo-Makers/events/)
+## Snocoduino schematics
 
-## Which workshop shoul I attend first?
+This file is publicly available at [EasyEDA](https://easyeda.com/wduraes/SnocoDuino). It includes both the Schematics and the PCB design.
 
-You may attend workshops in any order, however, to maximize your learning experience some workshops should be taken in a specific order and others have pre-requisites. It all depends on your previous knowledge and interest for some specific topic. 
+  ![SnocoDuino schema](Images/Snocoduino_Schema.PNG)
 
-We recommend taking the workshops in the following sequence:
 
- ![Learning Path](Images/path.png)
+## Test Code
+The test code for the SnocoDuino involves blinking the Neopixel and pin 13 where an LED should be added along with a 330R resistor.
+Add the Adafruit NeoPixel library before running the code. 
 
-## Arduino 101
+```   
+#include <Adafruit_NeoPixel.h>
+#define PIN            9
+#define NUMPIXELS      1
+Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
-Where everything starts. In the first workshop you’ll learn how to connect an Arduino board to your PC, program it and control electronic components using code! Impossible not to fall in love. 
+void setup() 
+{
+  pinMode(13,OUTPUT);
+  pixels.begin();
+  pixels.show();
+}
 
-## Electronics 101
+void loop() 
+{
+  digitalWrite(13,HIGH);
+  pixels.setPixelColor(0,0,0,0);
+  pixels.show();
+  delay(700);
+  digitalWrite(13,LOW);
+  pixels.setPixelColor(0,55,0,0);
+  pixels.show();
+  delay(700);
+}
+```  
+  
 
-Learn how to use a multimeter to measure power and components, a breadboard, the process to add new modules and components to the Arduino and expand the complexity of your projects. 
 
-## Arduino Baremetal
 
-How about creating your own project, without having to use an Arduino board? In this workshop you’ll learn how to take an ATMega328P (brain of the Uno) and get it to work in a breadboard. 
-
-## PCB Design
-
-Got your project up and running in a breadboard? This workshop is all about making it look professional and get a PCB (printed circuit board) done. Includes the schematics and the PCB design and good practices.
-
-## SMD Soldering
-
-Once you decide to move away from the breadboard, and design your own PCB, it is very likely you’ll use SMD components. In this workshop you’ll learn how to build and replace SMD components in a board
-
-## Logic analyzer
-
-Testing and troubleshooting more advanced circuits is hard. Buying an Oscilloscope might be an overkill, so come and learn how a Logic Analyzer can help you to understand, study and fix your projects!
