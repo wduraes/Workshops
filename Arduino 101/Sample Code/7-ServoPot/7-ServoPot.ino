@@ -1,3 +1,7 @@
+/*
+This code allow controlling the movement of a servo motor
+by varying the position of a potentiometer connected to pin A0
+*/
 #include <Servo.h>
 Servo myservo;
 int pos = 0;

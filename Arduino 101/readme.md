@@ -2,7 +2,7 @@
 
 ![Checklist](Images/awesome.png)
 
-Arduino is an open source Hardware, which allows you to write code to control how this hardware will behave. In other words, we can create our own device, to do whatever we want.” Isn’t that awesome? Couple of examples of things I built using Arduino boards:
+Arduino is an open source Hardware, which allows you to write code to control how this hardware will behave. In other words, we can create our own device, to do whatever we want. Isn’t that awesome? Couple of examples of things I built using Arduino boards:
 
 - **Pet door controller**: Arduino controls the motor that opens and closes the pet door at pre-set times.
 - **Toastmaster timer**: Handy device to help us at the toastmasters meetings.
@@ -25,6 +25,8 @@ In this introduction we will cover:
 - Basic C++ programming
 
 Check Snoco Makerspace Meetup page for the updated schedule: [Meetup](https://www.meetup.com/SnoCo-Makers/events/)
+
+-----
 
 ### Workshop Checklist
 

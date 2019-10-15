@@ -1,3 +1,7 @@
+/*
+Same code as in the previous example, but this one allows for debugging
+via Serial communication port at 9,600 BPS
+*/
 int button=0;
 void setup() 
 {

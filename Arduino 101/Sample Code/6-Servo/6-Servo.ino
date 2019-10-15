@@ -1,12 +1,16 @@
 
-
+/*
+This code moves a servo motor
+*/
 #include <Servo.h>
 Servo myservo; 
 
-void setup() {
+void setup() 
+{
   myservo.attach(9); 
 }
-void loop() {
+void loop() 
+{
   myservo.write(0);
   delay(500);
   myservo.write(180);
