@@ -12,4 +12,3 @@ button = digitalRead(A0);
    else
    {digitalWrite(13, LOW);}
 }
-

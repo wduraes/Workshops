@@ -51,5 +51,16 @@ Once you decide to move away from the breadboard, and design your own PCB, it is
 
 Testing and troubleshooting more advanced circuits is hard. Buying an Oscilloscope might be an overkill, so come and learn how a Logic Analyzer can help you to understand, study and fix your projects!
 
+## Coming soon:
+
+We're always adding new titles to our Workshop list based on the new technologies, trends and by interest of Snoco Makers community. Next ones in the list* are:
+
+1. Visual Studio Code + Arduino
+2. GiT for makers: never lose that sketch again
+3. uPython and the ATSAMD Michrochip family
+4. IoT 201: create and end to end solution based on Mosquitto, Node-Red, InfluxDB and Grafana
+
+* This list is subject to change and, as per today, there is no planned date to release these titles
+
 
 
