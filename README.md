@@ -55,12 +55,20 @@ Testing and troubleshooting more advanced circuits is hard. Buying an Oscillosco
 
 We're always adding new titles to our Workshop list based on the new technologies, trends and by interest of Snoco Makers community. Next ones in the list* are:
 
-1. Visual Studio Code + Arduino
-2. GiT for makers: never lose that sketch again
-3. uPython and the ATSAMD Michrochip family
-4. IoT 201: create and end to end solution based on Mosquitto, Node-Red, InfluxDB and Grafana
+1. **Visual Studio Code + Arduino** a workshop where you'll learn how to use the amazing and free VS Code to work with Arduino boards, replacing Arduino IDE. By adding free extensions on top of VS Code, writing C++ code was never that easy.
 
-* This list is subject to change and, as per today, there is no planned date to release these titles
+
+2. **Github for makers** How would you like to never lose that working sketch again? This is possible by learing how to leverage the free services of GitHub. You'll be using only a fraction of the potential of Github but still for makers like us it will be more than enough to have a centralized place to hold code, documentation, files and share them if you desire.  
+
+
+3. **Micro Python** Modern and faster microcontrollers (> 80Mhz) allow for a core Python layer that interprets code and make your board behave like a flashdrive simplifying the porcess of upload new versions of your sketch to the device. During this workshop we'll be reviewing the ATSAMD Michrochip family (SAMD 21 and SAMD 51)
+
+
+4. **IoT 201** Create and end to end solution based on Mosquitto (MQTT Broker), Node-Red (Workflow automation), InfluxDB (No SQL time series DB) and Grafana (UI and data visualization). All of them configured and installed in a Raspberry Pi computer! 
+
+---
+
+**Important** The list above is subject to change and, as per today, there is no planned date to release these titles
 
 
 

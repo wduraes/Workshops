@@ -1,4 +1,9 @@
-void setup() {
+/*
+This sample code allows for testing of the reset function, 
+Digital output and Serial comunication.
+*/
+void setup() 
+{
   pinMode(9,OUTPUT);
   digitalWrite(9,HIGH);
   //Turn the led on for 3 seconds for RESET testing
@@ -8,10 +13,11 @@ void setup() {
   Serial.begin(9600);
 }
 
-void loop() {
+void loop() 
+{
   digitalWrite(9,HIGH);
   delay(280);
   digitalWrite(9,LOW);
   delay(280);
-  Serial.println("jambo123");
+  Serial.println("jambo123"); //the content here is not important
 }

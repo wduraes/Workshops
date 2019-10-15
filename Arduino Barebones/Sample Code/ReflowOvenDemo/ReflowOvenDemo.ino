@@ -1,3 +1,6 @@
+/*
+Sample code I use in my Reflow Demo board
+*/
 #include <LiquidCrystal.h>
 #include <Wire.h>
 int contador;
@@ -32,10 +35,8 @@ void setup() {
   contador =1;
 }
 
-void loop() {
-
-
-  
+void loop() 
+{
  if(digitalRead(3)==1)
  {
     digitalWrite(14,0); 
@@ -61,7 +62,5 @@ void loop() {
     contador = 0; 
     lcd.setCursor(0, 3);
     lcd.print(" Counter = 0    ");
- }
- 
- }
-
+ } 
+}
