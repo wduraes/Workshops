@@ -1,6 +1,6 @@
 ## Workshops at Snoco Makerspace
 
-This is the main repo for all my workshop collateral. Here, you'll find for each workshop I host: 
+This is the main repo for all my workshop collateral. Here, you'll find for each workshop I host 
 
 - Classroom collateral
 - Pre-workshop checklist
