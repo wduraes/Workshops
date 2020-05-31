@@ -5,17 +5,17 @@
 #include "Arduino.h"
 #include <avr/sleep.h>
 
-#define sleepPin 7 // When low, makes 328P go to sleep
+#define sleepPin 4 // When low, makes 328P go to sleep
 #define wakePin 2  // when low, makes 328P wake up, must be an interrupt pin (2 or 3 on ATMEGA328P)
-#define ledPin 13  // output pin for the LED (to show it is awake)
+#define ledPin 6  // output pin for the LED (to show it is awake)
 
 void setup()
 {
   Serial.begin(9600);
 
   // Keep pins high until we ground them
-  pinMode(sleepPin, INPUT_PULLUP);
-  pinMode(wakePin, INPUT_PULLUP);
+  pinMode(sleepPin, INPUT);
+  pinMode(wakePin, INPUT);
 
   // Flashing LED just to show the �Controller is running
   digitalWrite(ledPin, LOW);
@@ -32,7 +32,7 @@ void loop()
   doBlink();
 
   // Is the "go to sleep" pin now LOW?
-  if (digitalRead(sleepPin) == LOW)
+  if (digitalRead(sleepPin) == HIGH)
   {
 
     // Disable the ADC (Analog to digital converter, pins A0 [14] to A5 [19])
@@ -51,7 +51,7 @@ void loop()
     // the wakeISR does not run before we are asleep and then prevent interrupts,
     // and then defining the ISR (Interrupt Service Routine) to run when poked awake
     noInterrupts();
-    attachInterrupt(digitalPinToInterrupt(wakePin), sleepISR, LOW);
+    attachInterrupt(digitalPinToInterrupt(wakePin), sleepISR, HIGH);
 
     // Send a message just to show we are about to sleep
     Serial.println("Good night!");

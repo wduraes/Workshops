@@ -1,30 +1,27 @@
 //Interrupt Example
-bool ledState = 0;
+#define LED 6
+#define BTN 2
+int Delay_Time = 1000;
 
 void setup()
 {
-  // initialize the LED pins as outputs:
-  pinMode(13, OUTPUT);
-  pinMode(8, OUTPUT);
-
-  // initialize the pushbutton pin as an input:
-  pinMode(2, INPUT_PULLUP);
-
-  // Attach an interrupt to the ISR vector
-  attachInterrupt(0, pin_ISR, FALLING);
+  // initialize the LED pin as output:
+  pinMode(LED, OUTPUT);
+  
+  // Attach an interrupt to pin 2, on the rising edge, 
+  // calling a function named Interrupt_Handling 
+  attachInterrupt(0, Interrupt_Handling, RISING);
 }
 
 void loop()
 {
-  digitalWrite(13, LOW);
-  delay(1000);
-  digitalWrite(13, HIGH);
-  delay(1000);
+  digitalWrite(LED, LOW);
+  delay(Delay_Time);
+  digitalWrite(LED, HIGH);
+  delay(Delay_Time);
 }
 
-void pin_ISR()
+void Interrupt_Handling()
 {
-  //buttonState = digitalRead(buttonPin);
-  ledState = !ledState;
-  digitalWrite(8, ledState);
+  Delay_Time = 100;
 }

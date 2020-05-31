@@ -1,26 +1,26 @@
 //Interrupt Example
-bool ledState = 0;
+#define LED 6
+#define BTN 2
+int Delay_Time = 1000;
 
 void setup()
 {
-  // initialize the LED pins as outputs:
-  pinMode(13, OUTPUT);
-  pinMode(8, OUTPUT);
-
+  // initialize the LED pin as output:
+  pinMode(LED, OUTPUT);
+  
   // initialize the pushbutton pin as an input:
-  pinMode(2, INPUT_PULLUP);
+  pinMode(BTN, INPUT);
 }
 
 void loop()
 {
-  digitalWrite(13, LOW);
-  delay(1000);
-  digitalWrite(13, HIGH);
-  delay(1000);
+  digitalWrite(LED, LOW);
+  delay(Delay_Time);
+  digitalWrite(LED, HIGH);
+  delay(Delay_Time);
 
-  if (digitalRead(2) == LOW)
+  if (digitalRead(BTN) == HIGH)
   {
-    ledState = !ledState;
-    digitalWrite(8, ledState);
-  }
+    Delay_Time = 100;
+  } 
 }

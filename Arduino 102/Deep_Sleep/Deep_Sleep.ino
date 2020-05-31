@@ -13,7 +13,7 @@
 #include <avr/sleep.h>
 #include <avr/wdt.h>
 
-#define ledPin 13 // output pin for the LED (to show it is awake)
+#define ledPin 6 // output pin for the LED (to show it is awake)
 
 volatile char sleepCnt = 0;
 
