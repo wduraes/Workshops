@@ -2,5 +2,5 @@
     "programmer": "AVR ISP",
     "board": "arduino:avr:uno",
     "port": "COM10",
-    "sketch": "Deep_Sleep_V2\\Deep_Sleep_V2.ino"
+    "sketch": "Debounce\\Debounce.ino"
 }
