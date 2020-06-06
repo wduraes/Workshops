@@ -1,6 +1,6 @@
 ## IoT 101 for Makers
 
-> This page was created to suport the Iot 101 for Makers workshop at the Snoco makerspace.
+**This page was created to suport the Iot 101 for Makers workshop at the Snoco makerspace.**
 
 Iot or Internet of Things has been a hot topic in the IT industry for many years now, and due to the masive availability of low cost / Wi-Fi enabled MCUs Makers or Hobbyists are also taking advantage of this technology for simple automation projects.
 
