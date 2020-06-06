@@ -4,7 +4,7 @@
   All details can be found at https://github.com/ralphbacon
 */
 
-#include "Arduino.h"
+//#include "Arduino.h"
 #include <avr/sleep.h>
 
 #define INTERVAL_MESSAGE 100

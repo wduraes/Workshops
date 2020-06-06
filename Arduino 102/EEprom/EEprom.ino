@@ -41,8 +41,9 @@ void checkLedState()
     Serial.println ("ON");
     digitalWrite(LED, HIGH);
    } 
-   if(ledState == 0) {
+   else 
+   {
     Serial.println ("OFF");
     digitalWrite(LED, LOW);
-   }
+   } 
 }

@@ -1,6 +1,6 @@
 {
     "programmer": "AVR ISP",
     "board": "arduino:avr:uno",
-    "port": "COM6",
-    "sketch": "Deep_Sleep_V2\\Deep_Sleep_V2.ino"
+    "port": "COM10",
+    "sketch": "EEprom\\EEprom.ino"
 }

@@ -7,10 +7,11 @@ void setup()
 {
   // initialize the LED pin as output:
   pinMode(LED, OUTPUT);
+  pinMode(BTN, INPUT);
   
   // Attach an interrupt to pin 2, on the rising edge, 
   // calling a function named Interrupt_Handling 
-  attachInterrupt(digitalPinToInterrupt(0), Interrupt_Handling, RISING);
+  attachInterrupt(0, Interrupt_Handling, RISING);
 }
 
 void loop()
