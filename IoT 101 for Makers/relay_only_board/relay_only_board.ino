@@ -24,11 +24,11 @@
   #include "Adafruit_MQTT.h"
   #include "Adafruit_MQTT_Client.h"
   #include "SPI.h"
-  #define WLAN_SSID       "WIFI NAME"
-  #define WLAN_PASS       "WIFI PASSWORD"
+  #define WLAN_SSID       "Your Wifi name"
+  #define WLAN_PASS       "Your wifi password"
   #define AIO_SERVER      "io.adafruit.com"
-  #define AIO_USERNAME    "YOUR USER NAME"
-  #define AIO_KEY         "YOUR ID"
+  #define AIO_USERNAME    "Your Adafruit account name"
+  #define AIO_KEY         "Your Adafruit key"
   #define AIO_SERVERPORT  8883     // use 8883 for SSL
   WiFiClientSecure client;  // use WiFiFlientSecure for SSL
   //#define AIO_SERVERPORT  1883                   
