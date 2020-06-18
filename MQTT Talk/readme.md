@@ -2,6 +2,27 @@
 
 This page was created to support the [MQTT open-talk](https://www.meetup.com/SnoCo-Makers/events/271344616/) at Snoco Makerspace (not a workshop, more like a casual demo + chat) focused on people interested in learning a little more about MQTT and Mosquitto.
 
+What we'll cover:
+
+- Part 1 - Installing the Toolchain:
+1. [Installing tools](https://github.com/wduraes/Workshops/tree/master/MQTT%20Talk#step-1---toolchain---download-and-install-various-tools)
+2. [Windows Terminal](https://github.com/wduraes/Workshops/tree/master/MQTT%20Talk#step-2---toolchain---windows-terminal)
+3. [WSL - Windows Subsystem for Linux](https://github.com/wduraes/Workshops/tree/master/MQTT%20Talk#step-3---toolchain---wsl)
+4. [Mosquitto - MQTT Broker](https://github.com/wduraes/Workshops/tree/master/MQTT%20Talk#step-4---toolchain---installing-mosquitto)
+5. [Node-Red](https://github.com/wduraes/Workshops/tree/master/MQTT%20Talk#step-5---toolchain---installing-node-red)
+
+- Part 2 - Exploring:
+
+6. [Mosquitto (Subscribe and Publish)](https://github.com/wduraes/Workshops/tree/master/MQTT%20Talk#step-6---exploring-mosquitto)
+7. [Visual Interface for MQTT](https://github.com/wduraes/Workshops/tree/master/MQTT%20Talk#step-7---exploring-mosquitto-visual-interface)
+8. [Creating Visual Flows](https://github.com/wduraes/Workshops/tree/master/MQTT%20Talk#step-8---exploring-node-red-creating-visual-flows)
+9. [External MQTT Brokers](https://github.com/wduraes/Workshops/tree/master/MQTT%20Talk#step-9---exploring-external-mqtt-brokers)
+10. [MQTT Mobile App](https://github.com/wduraes/Workshops/tree/master/MQTT%20Talk#step-10---exploring-one-last-thing-mobile-client)
+
+___
+
+## Part I - Installing  the Toolchain
+
 ## Step 1 - Toolchain - Download and Install Various Tools
 
 - Install WSL (works only on Windows 10) - [Link to Microsoft Docs](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
@@ -96,6 +117,9 @@ Test your installation
 ```bash
 node-red
 ```
+___
+
+## Part II - Exploring
 
 ## Step 6 - Exploring Mosquitto
 
