@@ -2,27 +2,6 @@
 
 This page was created to support the [MQTT open-talk](https://www.meetup.com/SnoCo-Makers/events/271344616/) at Snoco Makerspace (not a workshop, more like a casual demo + chat) focused on people interested in learning a little more about MQTT and Mosquitto.
 
-What we'll cover:
-
-- Part 1 - Installing the Toolchain:
-1. [Installing tools](https://github.com/wduraes/Workshops/tree/master/MQTT%20Talk#step-1---toolchain---download-and-install-various-tools)
-2. [Windows Terminal](https://github.com/wduraes/Workshops/tree/master/MQTT%20Talk#step-2---toolchain---windows-terminal)
-3. [WSL - Windows Subsystem for Linux](https://github.com/wduraes/Workshops/tree/master/MQTT%20Talk#step-3---toolchain---wsl)
-4. [Mosquitto - MQTT Broker](https://github.com/wduraes/Workshops/tree/master/MQTT%20Talk#step-4---toolchain---installing-mosquitto)
-5. [Node-Red](https://github.com/wduraes/Workshops/tree/master/MQTT%20Talk#step-5---toolchain---installing-node-red)
-
-- Part 2 - Exploring:
-
-6. [Mosquitto (Subscribe and Publish)](https://github.com/wduraes/Workshops/tree/master/MQTT%20Talk#step-6---exploring-mosquitto)
-7. [Visual Interface for MQTT](https://github.com/wduraes/Workshops/tree/master/MQTT%20Talk#step-7---exploring-mosquitto-visual-interface)
-8. [Creating Visual Flows](https://github.com/wduraes/Workshops/tree/master/MQTT%20Talk#step-8---exploring-node-red-creating-visual-flows)
-9. [External MQTT Brokers](https://github.com/wduraes/Workshops/tree/master/MQTT%20Talk#step-9---exploring-external-mqtt-brokers)
-10. [MQTT Mobile App](https://github.com/wduraes/Workshops/tree/master/MQTT%20Talk#step-10---exploring-one-last-thing-mobile-client)
-
-___
-
-## Part I - Installing  the Toolchain
-
 ## Step 1 - Toolchain - Download and Install Various Tools
 
 - Install WSL (works only on Windows 10) - [Link to Microsoft Docs](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
@@ -56,6 +35,35 @@ ___
 "experimental.retroTerminalEffect":true,
 ```
 - Change to false to disable (or just comment out the line)
+- Adding extra configuration to allow native WSL to run from Terminal
+- Adding extra configuration to allow SSH directly from Terminal
+
+```json
+{
+  "guid": "{c6eaf9f4-32a7-5fdc-b5cf-066e8a4b1e43}",
+  "hidden": false,
+  "name": "True Ubuntu-18.04",
+  "icon": "C:\\Users\\wdura\\Desktop\\TEMP\\tux.png",
+  //"experimental.retroTerminalEffect":true,
+  "commandline": "C:\\Users\\wdura\\AppData\\Local\\Microsoft\\WindowsApps\\ubuntu1804.exe"
+  },
+  {
+  "guid": "{c6eaf9f4-32a7-5fdc-b5cf-066e8a4b1e14}",
+  "hidden": false,
+  "name": "Raspberry Pi SSH from CMD",
+  "icon": "C:\\Users\\wdura\\Desktop\\TEMP\\RaspberryPi.png",
+  "tabTitle": "SSH@PI",
+  "commandline": "ssh pi@10.0.0.46"
+  },
+  {
+  "guid": "{c6eaf9f4-32a7-5fdc-b5cf-066e8a4b2e44}",
+  "hidden": false,
+  "name": "Raspberry Pi SSH from Ubuntu",
+  "tabTitle": "SSH@PI",
+  "icon": "C:\\Users\\wdura\\Desktop\\TEMP\\RaspberryPi.png",
+  "commandline": "wsl -d Ubuntu-18.04 ssh pi@10.0.0.46"
+}
+```
 
 ## Step 3 - Toolchain - WSL
 
@@ -63,6 +71,7 @@ ___
 - Update your Ubuntu:
 
 ```bash
+pwd
 sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt-get install sl -y
@@ -102,7 +111,7 @@ mosquitto
 
 - Open Windows Terminal (Ubuntu 18.04 should already be the default)
 - Install NodeJS (Node-Red is a NodeJS application)
-- Check Node JS Version (should be XXXX or higher)
+- Check Node JS Version (should be v8.10.0 or higher)
 - Install npm (package manager)
 - Install [Node Red](https://nodered.org/)
 
@@ -117,9 +126,6 @@ Test your installation
 ```bash
 node-red
 ```
-___
-
-## Part II - Exploring
 
 ## Step 6 - Exploring Mosquitto
 
@@ -136,12 +142,16 @@ ___
 ### 6.1 - Mosquitto Subscribe
 
 - Mosquitto Subscribe details [here](https://mosquitto.org/man/mosquitto_sub-1.html).
-- Open a new panel (alt+shift+plus)
+- Open a new panel (alt+shift+plus) and start Mosquitto
+  
+```bash
+mosquitto
+```
+- On a new panel (alt+shift+plus):
   
 ```bash
 Mosquitto_sub -d -t /dev/test
 ```
-
 Where: 
  - mosquitto_sub = subscribe to a topic on the broker
  - -d = debug - will show details of the communication with the broker
@@ -183,35 +193,138 @@ Once again, note all the debug information provided!!
 
 ## Step 8 - Exploring Node Red: Creating Visual Flows
 
-- Open a new panel (alt+shift+plus)
+- Open a new panel (alt+shift+plus) start Node-Red
   
 ```bash
 node-red
 ```
 - Note the IP and port on the panel information once you start node red
 - Go to your browser and navigate to that IP/Port
-- Create your first flow!
+- Create your first flow, or use the one below.
+- To import a flow, copy the Json code below, cick on the upper-right menu/ import, paste the code, select import to a new flow, and hit import.
+
+```json
+[
+    {
+        "id": "ef9d988f.17a008",
+        "type": "tab",
+        "label": "MQTT Talk Sample",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "e36379e2.d8d238",
+        "type": "inject",
+        "z": "ef9d988f.17a008",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 220,
+        "y": 180,
+        "wires": [
+            [
+                "28890c36.7c9664"
+            ]
+        ]
+    },
+    {
+        "id": "28890c36.7c9664",
+        "type": "mqtt out",
+        "z": "ef9d988f.17a008",
+        "name": "MQTT",
+        "topic": "/dev/test",
+        "qos": "0",
+        "retain": "false",
+        "broker": "5eabf657.f7cda8",
+        "x": 450,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "d7c9630f.f04e5",
+        "type": "mqtt in",
+        "z": "ef9d988f.17a008",
+        "name": "MQTT",
+        "topic": "/dev/test",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "5eabf657.f7cda8",
+        "x": 450,
+        "y": 340,
+        "wires": [
+            [
+                "911f5d58.666b3"
+            ]
+        ]
+    },
+    {
+        "id": "911f5d58.666b3",
+        "type": "debug",
+        "z": "ef9d988f.17a008",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 650,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "5eabf657.f7cda8",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "localhost",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    }
+]
+```
+
 - We'll cover just the surface of what Node-red can do, if you want to learn more, check the amazing videos from [Opto](https://www.youtube.com/user/OptoVideo/videos) on YouTube.
 
 ## Step 9 - Exploring External MQTT Brokers
 
 - [Adafruit IO](https://io.adafruit.com) - Requires account (free)
-- Note that your topic name starts with...
+- Note that your topic name starts with username/feeds/topicName
+- MQTT Topics are also referred to as feeds, it doensn't make any difference, but mind which name is your online MQTT service using.
 
 ```bash
 Mosquitto_pub -d -t WD/dev/test -m "message test" -u "WD" -P "WD" -h "io.adafruit.com"
 ```
 
+Other free
+
 - [Paho](https://mqtt.eclipse.org) - Test server
 
 ```bash
-Mosquitto_pub -d -t /dev/test -m "message test" -h "eclipse"
+Mosquitto_pub -d -t /dev/test -m "message test" -h "https://mqtt.eclipse.org"
 ```
 
 - [Mosquitto](https://test.mosquitto.org) - Test Server
 
 ```bash
-Mosquitto_pub -d -t /dev/test -m "message test" -h "mosquitto"
+Mosquitto_pub -d -t /dev/test -m "message test" -h "https://test.mosquitto.org"
 ```
 
 - Raspberry Pi
@@ -225,5 +338,5 @@ Mosquitto_pub -d -t /dev/test -m "message test" -h "192.168.0.1"
 
 ## Step 10 - Exploring one last thing: Mobile Client
 
-- MQTT Explorer (from XXXXXX)
+- IoT MQTT Panel (from Rahul Kundu)
 - Client for Android
