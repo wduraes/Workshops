@@ -338,5 +338,5 @@ Mosquitto_pub -d -t /dev/test -m "message test" -h "192.168.0.1"
 
 ## Step 10 - Exploring one last thing: Mobile Client
 
-- IoT MQTT Panel (from Rahul Kundu)
-- Client for Android
+- IoT MQTT Panel (from Rahul Kundu) 
+- Android - link to [Google Play](https://play.google.com/store/apps/details?id=snr.lab.iotmqttpanel.prod)
