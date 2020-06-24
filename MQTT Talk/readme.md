@@ -318,13 +318,13 @@ Other free
 - [Paho](https://mqtt.eclipse.org) - Test server
 
 ```bash
-Mosquitto_pub -d -t /dev/test -m "message test" -h "https://mqtt.eclipse.org"
+Mosquitto_pub -d -t /dev/test -m "message test" -h "mqtt.eclipse.org"
 ```
 
 - [Mosquitto](https://test.mosquitto.org) - Test Server
 
 ```bash
-Mosquitto_pub -d -t /dev/test -m "message test" -h "https://test.mosquitto.org"
+Mosquitto_pub -d -t /dev/test -m "message test" -h "test.mosquitto.org"
 ```
 
 - Raspberry Pi
