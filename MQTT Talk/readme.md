@@ -150,7 +150,7 @@ mosquitto
 - On a new panel (alt+shift+plus):
   
 ```bash
-Mosquitto_sub -d -t /dev/test
+mosquitto_sub -d -t /dev/test
 ```
 Where: 
  - mosquitto_sub = subscribe to a topic on the broker
@@ -169,7 +169,7 @@ Note all the debug information provided!!
 - Open a new panel (alt+shift+plus)
   
 ```bash
-Mosquitto_pub -d -t /dev/test -m "message test"
+mosquitto_pub -d -t /dev/test -m "message test"
 ```
 
 Where: 
@@ -310,7 +310,7 @@ node-red
 - MQTT Topics are also referred to as feeds, it doensn't make any difference, but mind which name is your online MQTT service using.
 
 ```bash
-Mosquitto_pub -d -t WD/dev/test -m "message test" -u "WD" -P "WD" -h "io.adafruit.com"
+mosquitto_pub -d -t WD/dev/test -m "message test" -u "WD" -P "WD" -h "io.adafruit.com"
 ```
 
 Other free
@@ -318,13 +318,13 @@ Other free
 - [Paho](https://mqtt.eclipse.org) - Test server
 
 ```bash
-Mosquitto_pub -d -t /dev/test -m "message test" -h "mqtt.eclipse.org"
+mosquitto_pub -d -t /dev/test -m "message test" -h "mqtt.eclipse.org"
 ```
 
 - [Mosquitto](https://test.mosquitto.org) - Test Server
 
 ```bash
-Mosquitto_pub -d -t /dev/test -m "message test" -h "test.mosquitto.org"
+mosquitto_pub -d -t /dev/test -m "message test" -h "test.mosquitto.org"
 ```
 
 - Raspberry Pi
@@ -333,7 +333,7 @@ Mosquitto_pub -d -t /dev/test -m "message test" -h "test.mosquitto.org"
   - Simply check your Pi IP address and use it on the sample code below
 
 ```bash
-Mosquitto_pub -d -t /dev/test -m "message test" -h "192.168.0.1"
+mosquitto_pub -d -t /dev/test -m "message test" -h "192.168.0.1"
 ```
 
 ## Step 10 - Exploring one last thing: Mobile Client
