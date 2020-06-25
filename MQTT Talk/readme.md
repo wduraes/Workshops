@@ -23,8 +23,9 @@ This page was created to support the [MQTT open-talk](https://www.meetup.com/Sno
 
 - Test some of the coolest features on Terminal:
    - Full screen: alt+enter
-   - Panels: alt+shift+plus
-   - Subpanels: alt+shift+minus
+   - Panels: alt+shift+plus (will open a new panel using the default profile)
+   - Subpanels: alt+shift+minus (will open a new panel using the default profile)
+   - Panels: alt+shift+d (open auto-sized split with the current active profile)
    - Moving between panels: alt+arrow
    - Resize panel: alt+shift+arrow
    - Close panel: ctrl+shift+w
