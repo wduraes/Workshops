@@ -28,9 +28,9 @@
 #define DHTTYPE DHT11 // Sensor Type
 DHT_Unified dht(DHTPIN, DHTTYPE);
 
-#define WLAN_SSID "your_wifi_name"
-#define WLAN_PASS "your_wifi_password"
-#define AIO_SERVER "your_Raspberry_pi_IP"
+#define WLAN_SSID "Wonders"
+#define WLAN_PASS "Jacare24"
+#define AIO_SERVER "13.66.201.126"
 #define AIO_USERNAME ""
 #define AIO_KEY ""
 #define AIO_SERVERPORT  1883
