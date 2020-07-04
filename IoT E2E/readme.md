@@ -45,9 +45,8 @@ If everything went well, you should get an error message that says "Address is a
 
 
 ```bash
-sudo apt-get install nodejs
-node -v
-sudo apt-get install npm
+sudo apt-get install nodejs -y
+sudo apt-get install npm -y
 bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
 
 ```
@@ -55,6 +54,7 @@ Running Node Red as a Service (so it will start automatically after every reboot
 
 ```bash
 sudo systemctl enable nodered.service
+node-red-start
 ```
 
 5. Verify if both Mosquitto and Node-red are now running as services:
@@ -100,16 +100,17 @@ Use the image below to guide your steps:
 
 4. Upload the code to the ESP8266 and monitor the serial port to see if there is any error message.
 
+5. Leave the device on for the duration of the workshop so you'll get plenty data in the Database.
+
 <br><br>
 
 ## Part 3 Validate Data Flow: Device --> Server
 
 1. In order to validate if Mosquitto is receiving the messages sent by the device we can do many things:
 
-    - Open a Mosquitto client and subscribe to the topic the device is publishing (in this case WEATHER), but in this case we won't. 
-    - Open your browser and go to Node-Red: [ip of your Raspberry PI]:1880, in my case 10.0.0.46:1880
+    - Open your browser and go to Node-Red: [IP address of your Raspberry PI]:1880, in my case 10.0.0.46:1880
     - Since node-red is configured for anonymous access, you should get an initial blank flow. 
-    - Copy the JSON file below (don't mind its messy look, this makes is easier to copy manually)
+    - Copy the JSON file below (make sure to copy the whole line, it is a long one). TIP: If you're on Windows, a triple click will select the whole line!
     - Go to the top right menu, click import and paste the JSON data into the window.
     - Select import to current flow and hit Import. 
 
@@ -149,17 +150,19 @@ WEATHER : msg.payload : string[37]
 2. Install InfluxDB
 
 ```bash
-sudo apt-get install influxdb 
-sudo apt-get install influxdb-client
+sudo apt-get install influxdb -y 
+sudo apt-get install influxdb-client -y
 echo $INFLUXDB_CONFIG_PATH /etc/influxdb/influxdb.conf
 sudo service influxdb start
 ```
 
 3. Create a database using the InfluxDb interface (InfluxDB does NOT have a GUI, only command line interface)
 
-```bash
+```SQL
 influx
 CREATE DATABASE WEATHER 
+SHOW DATABASES
+EXIT
 ```     
 
 4. Install an InfluxDB database module on Node-red
@@ -171,7 +174,7 @@ CREATE DATABASE WEATHER
 ![IoT End to end](resources/new-nodes.png)
 
 5. Import the template flow 
-    - Copy the JSON file below (don't mind its messy look, this makes is easier to copy manually)
+    - Copy the JSON file below (make sure to copy the whole line, it is a long one). TIP: If you're on Windows, a triple click will select the whole line!
     - Go to the top right menu, click import and paste the JSON data into the window.
     - Select import to a new flow and hit Import. 
 
@@ -205,6 +208,7 @@ influx
 USE WEATHER 
 SELECT * FROM stations
 select top(HUM,3) as Max_Humidity from stations
+EXIT
 ``` 
 9. We could query InfluxDB in hundreds of different ways to learn what we need form data. But this is not the focus of this workshop, so we'll stop here.
 
@@ -227,29 +231,23 @@ sudo /bin/systemctl enable grafana-server
 sudo /bin/systemctl start grafana-server
 ```
 
-3. Test your Grafana installation 
-    - Open your browser and go to GRAFANA: [ip of your Raspberry PI]:3000, in my case 10.0.0.46:3000
+3. Test your Grafana installation (be patient, the first execution can take some time)
+    - Open your browser and go to GRAFANA: [IP address of your Raspberry PI]:3000, in my case 10.0.0.46:3000
     - Use admin as username and password. Grafana will ask you to update the password in this first use. 
-    - Connect to a database and test
-    - Create an empty dashboard
-    - Import the JSON file below 
 
-```json
-{ "annotations": { "list": [ { "builtIn": 1, "datasource": "-- Grafana --", "enable": true, "hide": true, "iconColor": "rgba(0, 211, 255, 1)", "name": "Annotations & Alerts", "type": "dashboard" } ] }, "editable": true, "gnetId": null, "graphTooltip": 0, "id": 1, "links": [], "panels": [ { "datasource": null, "fieldConfig": { "defaults": { "custom": {}, "mappings": [], "thresholds": { "mode": "absolute", "steps": [ { "color": "green", "value": null }, { "color": "red", "value": 80 } ] } }, "overrides": [] }, "gridPos": { "h": 5, "w": 3, "x": 0, "y": 0 }, "id": 8, "options": { "colorMode": "value", "graphMode": "area", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": [ "mean" ], "fields": "", "values": false } }, "pluginVersion": "7.0.5", "targets": [ { "groupBy": [ { "params": [ "$__interval" ], "type": "time" }, { "params": [ "null" ], "type": "fill" } ], "measurement": "stations", "orderByTime": "ASC", "policy": "default", "refId": "A", "resultFormat": "time_series", "select": [ [ { "params": [ "TEMP" ], "type": "field" }, { "params": [], "type": "last" } ] ], "tags": [] } ], "timeFrom": null, "timeShift": null, "title": "Current Temperature (F)", "type": "stat" }, { "datasource": null, "fieldConfig": { "defaults": { "custom": {}, "mappings": [], "thresholds": { "mode": "absolute", "steps": [ { "color": "green", "value": null }, { "color": "red", "value": 80 } ] } }, "overrides": [] }, "gridPos": { "h": 5, "w": 3, "x": 3, "y": 0 }, "id": 6, "options": { "colorMode": "value", "graphMode": "area", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": [ "mean" ], "fields": "", "values": false } }, "pluginVersion": "7.0.5", "targets": [ { "groupBy": [ { "params": [ "$__interval" ], "type": "time" }, { "params": [ "null" ], "type": "fill" } ], "measurement": "stations", "orderByTime": "ASC", "policy": "default", "refId": "A", "resultFormat": "table", "select": [ [ { "params": [ "HUM" ], "type": "field" }, { "params": [], "type": "last" } ] ], "tags": [] } ], "timeFrom": null, "timeShift": null, "title": "Current Humidity", "type": "stat" }, { "aliasColors": {}, "bars": false, "dashLength": 10, "dashes": false, "datasource": null, "description": "", "fieldConfig": { "defaults": { "custom": {} }, "overrides": [] }, "fill": 1, "fillGradient": 0, "gridPos": { "h": 8, "w": 12, "x": 0, "y": 5 }, "hiddenSeries": false, "id": 4, "legend": { "avg": false, "current": true, "max": false, "min": false, "show": true, "total": false, "values": true }, "lines": true, "linewidth": 1, "nullPointMode": "null", "options": { "dataLinks": [] }, "percentage": false, "pointradius": 2, "points": false, "renderer": "flot", "seriesOverrides": [], "spaceLength": 10, "stack": false, "steppedLine": false, "targets": [ { "groupBy": [ { "params": [ "$__interval" ], "type": "time" }, { "params": [ "null" ], "type": "fill" } ], "measurement": "stations", "orderByTime": "ASC", "policy": "default", "refId": "A", "resultFormat": "time_series", "select": [ [ { "params": [ "TEMP" ], "type": "field" }, { "params": [], "type": "mean" } ] ], "tags": [] } ], "thresholds": [], "timeFrom": null, "timeRegions": [], "timeShift": null, "title": "Temperature", "tooltip": { "shared": true, "sort": 0, "value_type": "individual" }, "type": "graph", "xaxis": { "buckets": null, "mode": "time", "name": null, "show": true, "values": [] }, "yaxes": [ { "format": "short", "label": null, "logBase": 1, "max": null, "min": null, "show": true }, { "format": "short", "label": null, "logBase": 1, "max": null, "min": null, "show": true } ], "yaxis": { "align": false, "alignLevel": null } }, { "aliasColors": {}, "bars": false, "dashLength": 10, "dashes": false, "datasource": null, "fieldConfig": { "defaults": { "custom": {}, "mappings": [], "thresholds": { "mode": "absolute", "steps": [ { "color": "green", "value": null }, { "color": "red", "value": 80 } ] } }, "overrides": [] }, "fill": 1, "fillGradient": 0, "gridPos": { "h": 9, "w": 12, "x": 0, "y": 13 }, "hiddenSeries": false, "id": 2, "legend": { "avg": false, "current": true, "max": false, "min": false, "show": true, "total": false, "values": true }, "lines": true, "linewidth": 1, "nullPointMode": "null", "options": { "dataLinks": [] }, "percentage": false, "pluginVersion": "7.0.5", "pointradius": 2, "points": false, "renderer": "flot", "seriesOverrides": [], "spaceLength": 10, "stack": false, "steppedLine": false, "targets": [ { "groupBy": [ { "params": [ "$__interval" ], "type": "time" }, { "params": [ "null" ], "type": "fill" } ], "measurement": "stations", "orderByTime": "ASC", "policy": "default", "refId": "A", "resultFormat": "time_series", "select": [ [ { "params": [ "HUM" ], "type": "field" }, { "params": [], "type": "mean" } ] ], "tags": [] } ], "thresholds": [], "timeFrom": null, "timeRegions": [], "timeShift": null, "title": "Humidity", "tooltip": { "shared": true, "sort": 0, "value_type": "individual" }, "type": "graph", "xaxis": { "buckets": null, "mode": "time", "name": null, "show": true, "values": [] }, "yaxes": [ { "format": "short", "label": null, "logBase": 1, "max": null, "min": null, "show": true }, { "format": "short", "label": null, "logBase": 1, "max": null, "min": null, "show": true } ], "yaxis": { "align": false, "alignLevel": null } } ], "refresh": "10s", "schemaVersion": 25, "style": "dark", "tags": [], "templating": { "list": [] }, "time": { "from": "now-30m", "to": "now" }, "timepicker": { "refresh_intervals": [ "10s", "30s", "1m", "5m", "15m", "30m", "1h", "2h", "1d" ] }, "timezone": "", "title": "ESP8266 Weather Station", "uid": "-lwAZ2RRk", "version": 4 }
-```
+4. Add a datasource
+    - On the home page, click on "Add your first datasource"
+    - Select InfluxDB
+    - Update the URL under HTTP to your Raspberry Pi IP, like http://10.0.0.15:8086
+    - Under database, type WEATHER
+    - At the bottom of the page, hit Save & Test (you should get a green signal that everything worked)
 
-4. Used the awesome [Line Break Removal Tool](https://www.textfixer.com/tools/remove-line-breaks.php) to paste the JSON file here with no line breaks!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+5. Add a Dashboard
+    - Go back to the Welcome page by clicking on the Grafana logo (top left)
+    - Click on "create your first dashboard"
+    - You'll get an empty dashboard
+    - Click in the dashboar settings icon (it looks like a gear at the top right menu)
+    - Click on Add a new panel
+    - On "select measurements" select stations
+    - On "value" select HUM
+    - Hit Save and save again.
