@@ -4,6 +4,8 @@ This page was created to support the [IoT open-talk](https://www.meetup.com/SnoC
 
 Our end goal with this event is to create an End-to-end Iot solution that involves an IoT device sending telemetry data to a Raspberry Pi acting as a Server. 
 
+This content was based on the amazing work of the guy with th Swiss accent, Andreas Spiess in [this](https://www.youtube.com/watch?v=JdV4x925au0) video on [his YouTube channel](https://www.youtube.com/channel/UCu7_D0o48KbfhpEohoP7YSQ).
+
 ![IoT End to end](resources/e2e.png)
 
 The picture above shows:
