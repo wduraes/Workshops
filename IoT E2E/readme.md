@@ -79,12 +79,7 @@ Use the image below to guide your steps:
 
 ![IoT End to end](resources/breadboard.png)
 
-2. Install the AsyncMqttClient library: the zip file for this library is in the Resources folder in this repo. 
-    - Copy it to your computer.
-    - Open Arduino IDE, select menu Sketch / Include Library / Add .zip Library
-    - Select the .zip file you just downloaded and click open
-
-3. Open the weather_station.ino file:
+2. Open the weather_station.ino file:
     - Update your WiFi credentials SSID and Password
     - Update your Raspberry Pi IP Address
     - AIO Username and Key can be blank, because Mosquitto is setup to  allow anonymous access
@@ -98,9 +93,9 @@ Use the image below to guide your steps:
 #define AIO_SERVERPORT  1883
 ```
 
-4. Upload the code to the ESP8266 and monitor the serial port to see if there is any error message.
+3. Upload the code to the ESP8266 and monitor the serial port to see if there is any error message.
 
-5. Leave the device on for the duration of the workshop so you'll get plenty data in the Database.
+4. Leave the device on for the duration of the workshop so you'll get plenty data in the Database.
 
 <br><br>
 
