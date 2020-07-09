@@ -28,9 +28,9 @@
 #define DHTTYPE DHT11 // Sensor Type
 DHT_Unified dht(DHTPIN, DHTTYPE);
 
-#define WLAN_SSID "Wonders"
-#define WLAN_PASS "Jacare24"
-#define AIO_SERVER "13.66.201.126"
+#define WLAN_SSID "WIFI"
+#define WLAN_PASS "PWD"
+#define AIO_SERVER "10.0.0.31"
 #define AIO_USERNAME ""
 #define AIO_KEY ""
 #define AIO_SERVERPORT  1883

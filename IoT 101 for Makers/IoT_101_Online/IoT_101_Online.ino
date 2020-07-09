@@ -8,11 +8,11 @@
   #define DHTPIN 10     // what pin we're connected to on the temperature sensor
     #define DHTTYPE DHT11
   DHT_Unified dht(DHTPIN, DHTTYPE);
-  #define WLAN_SSID       "Your Wifi name"
-  #define WLAN_PASS       "Your wifi password"
+  #define WLAN_SSID       "Your_Wifi_name"
+  #define WLAN_PASS       "Your_wifi_password"
   #define AIO_SERVER      "io.adafruit.com"
-  #define AIO_USERNAME    "Your Adafruit account name"
-  #define AIO_KEY         "Your Adafruit key"
+  #define AIO_USERNAME    "Your_Adafruit_account_name"
+  #define AIO_KEY         "Your_Adafruit_key"
   #define AIO_SERVERPORT  1883                   
   WiFiClient client;
   //#define AIO_SERVERPORT  8883     // use 8883 for SSL
@@ -78,26 +78,32 @@
    
     dht.temperature().getEvent(&event); 
     //checking for non-number values BEFORE publishing 
-    if(!isnan(event.temperature))
+    if(isnan(event.temperature))
+    {
+      Serial.print("Last temperature value is not a number and it won't be published.");
+    }
+    else
     {
       if (temperature.publish(event.temperature)) 
       {
-          Serial.print("Sending temperature val ");
-          Serial.print(event.temperature);
-          Serial.println("...");
+        Serial.print("Sending temperature val ");
+        Serial.print(event.temperature);  
       }
     }
     
     dht.humidity().getEvent(&event);
     //checking for non-number values BEFORE publishing
-    if(!isnan(event.relative_humidity))
+    if(isnan(event.relative_humidity))
     {
-        if (humidity.publish(event.relative_humidity)) 
-        {
-          Serial.print("Sending humidity val ");
-          Serial.print(event.relative_humidity);
-          Serial.println("...");
-        }
+      Serial.print("Last humidity value is not a number and it won't be published.");
+    }
+    else
+    {
+      if (humidity.publish(event.relative_humidity)) 
+      {
+        Serial.print("Sending humidity val ");
+        Serial.print(event.relative_humidity);
+      }
     }
   }  
 
