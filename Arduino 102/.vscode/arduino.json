@@ -1,6 +1,6 @@
 {
     "programmer": "AVR ISP",
     "board": "arduino:avr:uno",
-    "port": "COM10",
-    "sketch": "EEprom\\EEprom.ino"
+    "port": "COM11",
+    "sketch": "Interrupts_Before\\Interrupts_Before.ino"
 }

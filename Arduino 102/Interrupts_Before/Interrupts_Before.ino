@@ -9,7 +9,7 @@ void setup()
   pinMode(LED, OUTPUT);
   
   // initialize the pushbutton pin as an input:
-  pinMode(BTN, INPUT);
+  pinMode(BTN, INPUT_PULLUP);
 }
 
 void loop()
@@ -19,7 +19,7 @@ void loop()
   digitalWrite(LED, HIGH);
   delay(Delay_Time);
 
-  if (digitalRead(BTN) == HIGH)
+  if (digitalRead(BTN) == LOW)
   {
     Delay_Time = 100;
   } 

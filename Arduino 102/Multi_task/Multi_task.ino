@@ -1,47 +1,22 @@
-#define BTN 2
-int counter = 0;
-bool pressed = false;
+#define INTERVAL_MESSAGE1 1000
+ 
+unsigned long time_1 = 0;
+bool state1 = 0;
 
 void setup() 
 {
-  pinMode(BTN,INPUT);
-  Serial.begin(9600);
-  Serial.println("Started...");
+    pinMode(6,OUTPUT);
 }
-
+ 
 void loop() 
 {
-  if(digitalRead(BTN)==HIGH && pressed==0)
-  {
-    pressed = 1;
-    counter++;
-    Serial.print("Millis now: ");
-    Serial.println(millis());
-  }
-  else if(digitalRead(BTN)==LOW && pressed==1)   
-  {
-    pressed = 0;
-    delay(200);
-  }
-}
-
-
-/*
-int period = 1000;
-unsigned long time_now = 0;
- 
-void setup() {
-    Serial.begin(9600);
-}
- 
-void loop() {
-    if(millis() > time_now + period){
-        time_now = millis();
-        Serial.print("Hello, the time is: ");
-        Serial.print(millis()/1);
-        Serial.println(" sec");
+    //control timer for process 1, which will be activated every second
+    if(millis() > time_1 + INTERVAL_MESSAGE1)
+    {
+        time_1 = millis();
+          //here is your code 
+          state1 = not(state1);
+          digitalWrite(6,state1);
     }
-   
-    //Run other code
 }
-*/
+   

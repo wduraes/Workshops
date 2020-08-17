@@ -19,8 +19,6 @@ bool state4 = 0;
 bool state5 = 0;
 bool state6 = 0;
  
-void print_time(unsigned long time_millis);
- 
 void setup() 
 {
     pinMode(13,OUTPUT);
@@ -36,49 +34,43 @@ void loop()
     //control timer for process 1, which will be activated every 40ms
     if(millis() > time_1 + INTERVAL_MESSAGE1){
         time_1 = millis();
-        print_time(time_1);
-        state1 = not(state1);
-        digitalWrite(13,state1);
+          //here is your code 
+          state1 = not(state1);
+          digitalWrite(13,state1);
     }
    
     //control timer for process 2, which will be activated every 70ms
     if(millis() > time_2 + INTERVAL_MESSAGE2){
         time_2 = millis();
-        print_time(time_2);
-        state2 = not(state2);
-        digitalWrite(12,state2);
+          //here is your code 
+          state2 = not(state2);
+          digitalWrite(12,state2);
     }
    
     if(millis() > time_3 + INTERVAL_MESSAGE3){
         time_3 = millis();
-        print_time(time_3);
-        state3 = not(state3);
-        digitalWrite(11,state3);
+          //here is your code 
+          state3 = not(state3);
+          digitalWrite(11,state3);
     }
    
     if(millis() > time_4 + INTERVAL_MESSAGE4){
         time_4 = millis();
-        print_time(time_4);
-        state4 = not(state4);
-        digitalWrite(10,state4);
+          //here is your code 
+          state4 = not(state4);
+          digitalWrite(10,state4);
     }
         if(millis() > time_5 + INTERVAL_MESSAGE5){
         time_5 = millis();
-        print_time(time_5);
-        state5 = not(state5);
-        digitalWrite(9,state5);
+          //here is your code 
+          state5 = not(state5);
+          digitalWrite(9,state5);
     }
    
     if(millis() > time_6 + INTERVAL_MESSAGE6){
         time_6 = millis();
-        print_time(time_6);
-        state6 = not(state6);
-        digitalWrite(8,state6);
+          //here is your code 
+          state6 = not(state6);
+          digitalWrite(8,state6);
     }
-}
- 
-void print_time(unsigned long time_millis){
-    Serial.print("Time: ");
-    Serial.print(time_millis/1000);
-    Serial.print("s - ");
 }

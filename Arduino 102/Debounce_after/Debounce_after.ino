@@ -6,7 +6,7 @@ bool state = false;
 
 void setup() 
 {
-  pinMode(BTN,INPUT);
+  pinMode(BTN,INPUT_PULLUP);
   pinMode(LED,OUTPUT);
   Serial.begin(9600);
   Serial.println("Started...");
@@ -14,7 +14,7 @@ void setup()
 
 void loop() 
 {
-  if(digitalRead(BTN)==HIGH && pressed==0)
+  if(digitalRead(BTN)==LOW && pressed==0)
   {
     pressed = 1;
     state = !state;
@@ -22,7 +22,7 @@ void loop()
     Serial.println(counter);
     digitalWrite(LED,state);
   }
-  else if(digitalRead(BTN)==LOW && pressed==1)   
+  else if(digitalRead(BTN)==HIGH && pressed==1)   
   {
     pressed = 0;
     delay(200);

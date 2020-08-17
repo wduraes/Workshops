@@ -7,7 +7,7 @@ bool ledState = 0;
 
 void setup() 
 {
-  pinMode(BTN,INPUT);
+  pinMode(BTN,INPUT_PULLUP);
   pinMode(LED,OUTPUT);
   Serial.begin(9600);
   checkLedState();
@@ -15,7 +15,7 @@ void setup()
 
 void loop() 
 {
-  if(digitalRead(BTN)==HIGH && pressed==0)
+  if(digitalRead(BTN)==LOW && pressed==0)
   {
     ledState = !ledState;
     digitalWrite(LED,ledState);
