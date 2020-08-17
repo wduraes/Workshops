@@ -17,6 +17,21 @@ In this workshop we will cover:
 - Alternatives for powering your bare metal circuit and tradeoffs
 - Debug the circuit and common troubleshooting scenarios
 
+Parts needed:
+
+- Microcontroller ATMEGA 328PU - [link to Digikey](https://www.digikey.com/product-detail/en/microchip-technology/ATMEGA328P-PU/ATMEGA328P-PU-ND/1914589)
+- 2 x 22pF capacitor
+- 3 x 100nF capacitor
+- 1 x 16Mhz Crystal Oscilator 
+- 1 x Red LED 5mm
+- 1 x 330R resistor
+- 1 x 10K resistor
+- 1 x tactile push button
+- 1 x CP2102 USB to Serial board like [this](https://www.aliexpress.com/item/32650897782.html?spm=a2g0s.9042311.0.0.27424c4dvrcU1W)
+- 1 x Full size breadboard
+- Breadboard wire kit
+- If you want ot be able to burn the bootloader into your ATMEGA 328, you'll also need an AVR Programmer (recommend getting [this](https://www.sparkfun.com/products/9825) one.)
+
 Check Snoco Makerspace Meetup page for the updated schedule: [Meetup](https://www.meetup.com/SnoCo-Makers/events/)
 
 -----
