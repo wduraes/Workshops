@@ -213,7 +213,7 @@ EXIT
 ## Part 5 Server Side - Data Visualization - Dashboard
 
 1. The last step in this setup is to add a nice way to display and explore the telemetry data sent by the devices
-2. Install Grafana
+2. Install Grafana (instructions below work only on Raspberry Pi, for Ubuntu look at [grafana.com](https://grafana.com/docs/grafana/latest/installation/debian/#install-on-debian-or-ubuntu))
 
 ```bash
 sudo apt-get install -y adduser libfontconfig1
@@ -241,7 +241,7 @@ sudo /bin/systemctl start grafana-server
     - Go back to the Welcome page by clicking on the Grafana logo (top left)
     - Click on "create your first dashboard"
     - You'll get an empty dashboard
-    - Click in the dashboar settings icon (it looks like a gear at the top right menu)
+    - Click in the dashboard settings icon (it looks like a gear at the top right menu)
     - Click on Add a new panel
     - On "select measurements" select stations
     - On "value" select HUM
