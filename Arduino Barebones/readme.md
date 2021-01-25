@@ -100,6 +100,8 @@ The image below shows the final PCB (back):
 
 In the fourth and final workshop, we will:
 
+- Load the final sketch to the microcontroller **before** removing it from the breadboard
+  -  Get the `LCD-temp-V3-rtc` code from the Samples directory and load it to the Arduino.
 - Remove the parts from the breadboard
 - Place and solder them into the final PCB
 
@@ -123,5 +125,9 @@ Tools you'll need:
   - Soldering Iron
   - Solder
   - Cutting plyer
+
+Once you're finished with the assembly, you'll should see the clock in all its glory!
+
+To set the right time, click the SET button, then HOUR and MINUTE as needed. 
 
 ![Checklist](Images/final.png)
