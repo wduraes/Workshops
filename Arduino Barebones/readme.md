@@ -131,3 +131,9 @@ Once you're finished with the assembly, you'll should see the clock in all its g
 To set the right time, click the SET button, then HOUR and MINUTE as needed. 
 
 ![Checklist](Images/final.png)
+
+### Part 5 - 3D printed stand
+
+If you decide to get a stand printed, you can find the link to the OnShape file [here](https://cad.onshape.com/documents/9426a0ed29abecd2dc111a08/w/ff3b5aa281ac6c52b2f27045/e/9525e7a8ba43a21596223d8b) and you can also download the STL file [here](Clock-base.stl). 
+
+![Checklist](Images/stand.png)
