@@ -18,23 +18,9 @@ The image below shows how to connect your Arduino Uno board to the breadboard.
 
 Using an Arduino Uno board as programmer requires you to first load some code into the programmer (Arduino Uno board) before it can program the Target device (breadboard). 
 
-To program the board follow these steps:
-
-- Connect your Arduino Uno board to your computer
-- Open Arduino IDE
-- Load the Arduino ISP (from File/Examples)
-- Select Your Arduino Uno board (Tools/Board/Arduino AVR Boards/Arduino Uno
-- Select your COM port
-- Make sure you have selected Tools/Programmer/AVR ISP
-- Load the code to your Arduino
-
-Now this Arduino Uno is ready to be used as a programmer device. 
-
-- Load Blink (from File/Examples/Basic)
-- Change the LED to pin 8 in the code (Can you tell why?)
-- Select Tools/Programmer/Arduino as ISP
-- Select Sketch/Upload using programmer	
-- **Important**: If you, by mistake or habit, press "upload" instead of "upload using programmer", you'll have to go back to the first step.  
+![Step1](../Images/step1.png)
+![Step1.5](../Images/step1-5.png)
+![Step2](../Images/step2.png)
 
 **If everything went well, you should see the LED blinking on your breadboard!!**
 
