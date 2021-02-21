@@ -4,7 +4,6 @@
   All details can be found at https://github.com/ralphbacon
 */
 
-//#include "Arduino.h"
 #include <avr/sleep.h>
 
 #define INTERVAL_MESSAGE 100
@@ -28,7 +27,7 @@ void setup()
 // The loop just blinks an LED when not in sleep mode
 void loop()
 {
-  doBlink();
+  Pisque();
 
   // Is the "go to sleep" pin now LOW? (it is normally pulled up)
   if (digitalRead(sleepPin) == LOW)
@@ -70,7 +69,7 @@ void sleepISR()
   // Now we continue running the main Loop() just after we went to sleep
 }
 
-void doBlink()
+void Pisque()
 {
   if(millis() > time_1 + INTERVAL_MESSAGE)
   {
