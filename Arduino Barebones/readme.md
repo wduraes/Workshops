@@ -113,10 +113,11 @@ Parts you'll need:
   - Voltage regulator AMS1117 5V (SOT223)
   - One additional 100nF decoupling capacitor
   - 5V Buzzer
-  - 2x3 header for programming
+  - 6 pin (2x3) male header for programming
   - 3 tactile push buttons 6x6mm
-  - 28 pin socket
+  - 28 pin (14x2) socket (reduces risk of frying your ATMega while soldering)
   - 16 pin (16x1) female header
+  - 16 pin (16x1) male header (some LCD screens may include this)
   - 6 pin (6x1) female header
   - RTC real time clock
 
