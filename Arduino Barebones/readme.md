@@ -15,10 +15,10 @@ In this 3 part workshop we will cover:
 In the first workshop, we will:
 
 - Assemble a bare metal circuit using a breadboard (like the one in the picture above)
-- Loading the bootloader into the microcontroller 
+- Load the bootloader into the microcontroller
 - Understand the difference between SPI and UART interfaces (when to use each when interfacing with microcontrollers to load your sketch)
 - Load sketches to your board
-- Alternatives for powering your bare metal circuit and tradeoffs
+- Learn alternatives for powering your bare metal circuit and tradeoffs
 - Debug the circuit and common troubleshooting scenarios
 
 Parts needed:
@@ -26,7 +26,7 @@ Parts needed:
 - Microcontroller ATMEGA 328PU - [link to Digikey](https://www.digikey.com/product-detail/en/microchip-technology/ATMEGA328P-PU/ATMEGA328P-PU-ND/1914589)
 - 2 x 22pF capacitor
 - 3 x 100nF capacitor
-- 1 x 16Mhz Crystal Oscillator 
+- 1 x 16Mhz crystal oscillator
 - 1 x Red LED 5mm
 - 1 x 330R resistor
 - 1 x 10K resistor
@@ -36,7 +36,7 @@ Parts needed:
 
 Knowledge required:
 
-- Before jumping into this workshop, you need to know the basics or Arduino programming (Arduino 101), have the Arduino IDE installed on your computer and have the knowledge to run basic sketches. 
+- Before jumping into this workshop, you need to know the basics of Arduino programming (Arduino 101 level or better), have the Arduino IDE installed on your computer, and have the knowledge of how to to run basic sketches. 
 
 [Part 1 - Files and references](Bare_Metal/readme.md)
 
@@ -51,12 +51,12 @@ In the second workshop, we will:
 
 Additional parts needed:
 
-- 1 x LCD Screen 16x2
-- 1x 10K Trim Pot
-- 1 x DHT11 Sensor
+- 1 x LCD screen 16x2
+- 1 x 10K trim pot
+- 1 x DHT11 sensor
 - 1 x 10K resistor
 - 1 x 4K7 resistor
-- 1 x LDR (light dependant resistor)
+- 1 x LDR (light dependent resistor)
 
 Knowledge required:
 
@@ -112,21 +112,22 @@ Parts you'll need:
   - Connector for power
   - Voltage regulator AMS1117 5V (SOT223)
   - One additional 100nF decoupling capacitor
-  - 5V Buzzer
-  - 2x3 header for programming
   - 3 tactile push buttons 6x6mm
-  - 28 pin socket
-  - 16 pin (16x1) female header
-  - 6 pin (6x1) female header
-  - RTC real time clock
+  - 5V Buzzer
+  - 6 pin (2x3) male header for programming
+  - 28 pin (14x2) IC socket (reduces risk of frying your ATMega while soldering)
+  - 16 pin (16x1) female header for LCD
+  - 16 pin (16x1) male header for LCD (some suppliers include this)
+  - 6 pin (6x1) female header for RTC
+  - RTC (real time clock) module
 
 Tools you'll need:
 
-  - Soldering Iron
+  - Soldering iron
   - Solder
-  - Cutting plyer
+  - Wire snips
 
-Once you're finished with the assembly, you'll should see the clock in all its glory!
+Once you're finished with the assembly, you should see the clock in all its glory!
 
 To set the right time, click the SET button, then HOUR and MINUTE as needed. 
 
