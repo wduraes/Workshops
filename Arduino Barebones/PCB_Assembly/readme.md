@@ -5,7 +5,9 @@ In this step, we'll get to know the PBC, remove the components from the breadboa
 ## Step 1 - Load the Clock Sketch
 
 - Load the final sketch to the microcontroller **before** removing it from the breadboard
-  -  Get the `LCD-temp-V3-rtc` code from the Samples directory and load it to the Arduino.
+  - Get the `LCD-temp-V3-rtc` code from the Samples directory and load it to the Arduino.
+  - It will require an additional library: RTCLib by Adafruit
+  - Once the sample code is loaded, you're ready to start with the PCB!
   
     **Q.** Why loading the clock sketch now and not later?
 
