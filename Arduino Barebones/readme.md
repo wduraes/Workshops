@@ -98,34 +98,11 @@ The image below shows the final PCB (back):
 
 ### Part 4 - PCB Assembly
 
-In the fourth and final workshop, we will:
+In the fourth and final workshop, we will get the PCB assembled.
 
-- Load the final sketch to the microcontroller **before** removing it from the breadboard
-  -  Get the `LCD-temp-V3-rtc` code from the Samples directory and load it to the Arduino.
-- Remove the parts from the breadboard
-- Place and solder them into the final PCB
-
-Parts you'll need:
+The page with [details is here](PCB_Assembly/readme.md). 
 
 ![Checklist](Images/parts.png)
-
-  - Connector for power
-  - Voltage regulator AMS1117 5V (SOT223)
-  - One additional 100nF decoupling capacitor
-  - 3 tactile push buttons 6x6mm
-  - 5V Buzzer
-  - 6 pin (2x3) male header for programming
-  - 28 pin (14x2) IC socket (reduces risk of frying your ATMega while soldering)
-  - 16 pin (16x1) female header for LCD
-  - 16 pin (16x1) male header for LCD (some suppliers include this)
-  - 6 pin (6x1) female header for RTC
-  - RTC (real time clock) module
-
-Tools you'll need:
-
-  - Soldering iron
-  - Solder
-  - Wire snips
 
 Once you're finished with the assembly, you should see the clock in all its glory!
 
