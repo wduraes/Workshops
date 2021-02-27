@@ -6,7 +6,6 @@
 #include <DHT.h>
 #include <DHT_U.h>
 #include "SPI.h"
-#include "sensorData.h"
 #include "RTClib.h"
 
 RTC_DS1307 rtc;
@@ -21,8 +20,8 @@ volatile int sec = 0, minute = 0, hour = 0;
 long debouncing_time = 150; //Debouncing Time in Milliseconds
 volatile unsigned long last_micros = 0;
 volatile unsigned long last_micros_clock = 0;
+volatile unsigned long last_micros_sensor = 0;
 
-//const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
 LiquidCrystal lcd(7, 8, 9, 10, 11, 12);
 
 void setup() 
@@ -36,6 +35,7 @@ void setup()
   pinMode(2, INPUT_PULLUP);
   pinMode(3, INPUT_PULLUP);
 
+  //Power on Beep
   tone(14,1000);
   delay(200);
   noTone(14);
@@ -51,7 +51,7 @@ void setup()
   // set up the LCD's number of columns and rows:
   lcd.begin(16, 2);
   // Print a message to the LCD.
-  lcd.print("Hello, world!");  
+  lcd.print("--Initializing--");  
   delay(2000);
   lcd.clear();
 
@@ -61,11 +61,17 @@ void setup()
     delay(2000);
     lcd.clear();
   }
+
+   lcd.setCursor(0, 1);
+   lcd.print("Waiting DHT data");
+  
+  //Uncomment line below to set the RTC with this date: Format - Year, Month, Day, Hour, Minute and Second.
   //rtc.adjust(DateTime(2020, 11, 7, 10, 29, 0));
 }
 
 void controlBacklight()
 {
+  //check the light reading and control the LCD backlight
   if(analogRead(A1)>200)
   {
     digitalWrite(5,1);
@@ -97,9 +103,9 @@ void printSensor()
       lcd.print(" ");      
     }
     lcd.setCursor(4, 1);
-    lcd.print(char(223));
+    lcd.print(char(223)); //the Degree symbol 
     lcd.setCursor(5, 1);
-    lcd.print("C");
+    lcd.print("C   ");
       
     lcd.setCursor(9, 1);
     lcd.print("H=");
@@ -108,7 +114,7 @@ void printSensor()
     int h = event.relative_humidity;
     lcd.print(h);
     lcd.setCursor(13, 1);
-    lcd.print("%");   
+    lcd.print("%  ");   
 
     delay(50);
     
@@ -132,49 +138,48 @@ void Interrupt()
 
 void Clock()
 {
-    DateTime time = rtc.now();
+  //Get data from RTC and print on LCD screen
+  DateTime time = rtc.now();
 
-    minute = time.minute(); 
-    hour = time.hour();
+  minute = time.minute(); 
+  hour = time.hour();
     
-    lcd.setCursor(0, 0);
-    lcd.print("Clock ");
-    if (time.hour() < 10)
-    {
-      lcd.print("0");
-      lcd.print(time.hour());
-    }
-    else
-    {
-      lcd.print(time.hour());
-    }
-    lcd.print(":");
-    if (time.minute() < 10)
-    {
-      lcd.print("0");
-      lcd.print(time.minute());
-    }
-    else
-    {
-      lcd.print(time.minute());
-
-    } lcd.print(":");
-    if (time.second() < 10)
-    {
-      lcd.print("0");
-      lcd.print(time.second());
-    }
-    else
-    {
-      lcd.print(time.second());
-    }
-    lcd.print(" ");
+  lcd.setCursor(0, 0);
+  lcd.print("Clock ");
+  if (time.hour() < 10)
+  {
+    lcd.print("0");
+    lcd.print(time.hour());
+  }
+  else
+  {
+    lcd.print(time.hour());
+  }
+  lcd.print(":");
+  if (time.minute() < 10)
+  {
+    lcd.print("0");
+    lcd.print(time.minute());
+  }
+  else
+  {
+    lcd.print(time.minute());
+   } lcd.print(":");
+  if (time.second() < 10)
+  {
+    lcd.print("0");
+    lcd.print(time.second());
+  }
+  else
+  {
+    lcd.print(time.second());
+  }
+  lcd.print(" ");
 }
-
 
 void loop() 
 {
-  //Setting the time will stop the clock to set the time
+  //Setting the time will stop the clock
   while (startstop == false)
   {
     lcd.setCursor(0, 1);
@@ -222,11 +227,18 @@ void loop()
     rtc.adjust(DateTime(2020, 11, 7, hour, minute, 0));
   }
 
+  //check if 1 second has passed for clock update
   if((long)(millis() - last_micros_clock) >= 1000) 
   {
     last_micros_clock = millis();
     Clock();
-    printSensor();  
     controlBacklight(); 
   }  
+
+  //check if 10 seconds has passed for clock update
+  if((long)(millis() - last_micros_sensor) >= 10000) 
+  {
+    last_micros_sensor = millis();
+    printSensor();  
+   }   
 }
