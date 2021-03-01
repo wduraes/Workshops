@@ -1,6 +1,6 @@
 # PCB Assembly
 
-In this step, we'll get to know the PBC, remove the components from the breadboard and solder them to the PCB.
+In this step, we'll get to know the PCB, remove the components from the breadboard and solder them to the PCB.
 
 ## Step 1 - Load the Clock Sketch
 
@@ -123,7 +123,7 @@ To adjust your clock simply click the Button **SET**. It will trigger an interru
 
 Click **SET** again once finished to resume the clock. It will always resume at the zero second on the time and minute you set. 
 
-The backlight of the LCD is now connected to one of the digital pins on the ATMEGA328 and controlled via code. Current code turns the backlight off when the light on the sensor is below the threshold. You cna adjust that or just turn the backlight on all the time if you wish.
+The backlight of the LCD is now connected to one of the digital pins on the ATMEGA328 and controlled via code. Current code turns the backlight off when the light on the sensor is below the threshold. You can adjust that or just turn the backlight on all the time if you wish.
 
 ## Future Enhancements 
 
