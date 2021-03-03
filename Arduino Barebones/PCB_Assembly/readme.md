@@ -51,7 +51,7 @@ The picture below shows the details of the PCB Version 2:
 
 ### Identifying parts and placement
 
-There is no specific order to solder your components into the PCB, with one exception: The AMS1177 LDO (low-dropout voltage regulator) - since it is the only SMD part you should solder it first.
+There is no specific order to solder your components into the PCB, with one exception: The AMS1117 LDO (low-dropout voltage regulator) - since it is the only SMD part you should solder it first.
 
 **Soldering parts:**
 
