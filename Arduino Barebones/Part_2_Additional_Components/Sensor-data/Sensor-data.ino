@@ -52,11 +52,7 @@ void loop()
   lcd.setCursor(10, 0);
   lcd.print("L:");
   lcd.setCursor(13, 0);  //set the cursor to the 4th column, second line
-  
-  // The light value gets printed in three characters. If there's a really
-  // bright light, the fourth digit is off-screen on a 2x16 LCD.
-  int light = map(analogRead(A1), 0, 1023, 0, 256);
-  lcd.print(light);  
+  lcd.print(analogRead(A1));  
 
   lcd.setCursor(0, 1);
   lcd.print("H:");
