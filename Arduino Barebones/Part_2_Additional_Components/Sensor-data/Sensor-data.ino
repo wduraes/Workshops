@@ -40,7 +40,13 @@ void loop()
   
   if(!isnan(event.temperature))  
   {
-    lcd.print(event.temperature);  
+    float tempMeasurement = event.temperature;
+    
+    // The measurement is in Celcius. If you want it in Fahrenheit,
+    // uncomment the following line:
+    // tempMeasurement = (event.temperature * 1.8) + 32;
+    
+    lcd.print(tempMeasurement);  
   } 
 
   lcd.setCursor(10, 0);
