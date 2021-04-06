@@ -42,7 +42,7 @@ void loop()
   {
     float tempMeasurement = event.temperature;
     
-    // The measurement is in Celcius. If you want it in Fahrenheit,
+    // The measurement is in Celsius. If you want it in Fahrenheit,
     // uncomment the following line:
     // tempMeasurement = (event.temperature * 1.8) + 32;
     
