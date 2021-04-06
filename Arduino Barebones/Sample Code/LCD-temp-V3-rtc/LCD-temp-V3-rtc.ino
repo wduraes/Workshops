@@ -95,7 +95,13 @@ void printSensor()
     lcd.print("T=");
     lcd.setCursor(2, 1);
     dht.temperature().getEvent(&event);
-    int t = event.temperature;
+    
+    float tempMeasurement = event.temperature;
+    // The measurement is in Celsius. If you want it in Fahrenheit,
+    // uncomment the following line:
+    // tempMeasurement = (event.temperature * 1.8) + 32;
+    int t = round(tempMeasurement);
+  
     lcd.print(t);
     if (t<10) //prevent garbage for single digit temperature
     {
