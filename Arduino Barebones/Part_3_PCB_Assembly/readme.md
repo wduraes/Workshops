@@ -133,6 +133,7 @@ The code for this clock at its current stage is very basic with **plenty** space
 
 1. Change the light threshold to the environment where the clock is
 1. Show the Date on the display (the RTC provides not only the time, but also the date). In this case you'll have to figure out how to provide an interface for date adjustment with the current 3 buttons.
+1. Automatically adjust for daylight savings.
 1. Play a bip or a little song with the buzzer at the top of the hours
 1. Make it an alarm clock. 
 
