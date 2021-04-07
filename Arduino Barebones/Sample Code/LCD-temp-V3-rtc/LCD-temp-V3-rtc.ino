@@ -101,23 +101,31 @@ void printSensor()
     // uncomment the following two lines:
 //#define FAHRENHEIT
 //    tempMeasurement = (event.temperature * 1.8) + 32;
-    int t = round(tempMeasurement);
+    tempMeasurement = round(tempMeasurement);
   
-    lcd.print(t);
-    if (t<10) //prevent garbage for single digit temperature
+    lcd.print(tempMeasurement);
+    if (tempMeasurement<10) //prevent garbage for single digit temperature
     {
-      lcd.setCursor(4, 1);
-      lcd.print(" ");      
+      lcd.setCursor(3, 1);
+      lcd.print(" ");
     }
-    lcd.setCursor(4, 1);
+    // Adjust printing of the degree symbol and C/F if the temperature
+    // is over 100 degrees. (If that's in Celsius you have bigger problems.)
+    int cursorPosition = 4;
+    if (tempMeasurement > 99)
+    {
+      cursorPosition = 5;
+    }
+    lcd.setCursor(cursorPosition++, 1);
+      // Post-fix ++: cursorPosition increases by one AFTER it is used.
     lcd.print(char(223)); //the Degree symbol 
-    lcd.setCursor(5, 1);
+    lcd.setCursor(cursorPosition, 1);
 #ifdef FAHRENHEIT
-    lcd.print("F   ");
+    lcd.print("F   ");  // The spaces help clear old characters and costs nothing.
 #else
     lcd.print("C   ");
 #endif
-      
+
     lcd.setCursor(9, 1);
     lcd.print("H=");
     lcd.setCursor(11, 1);
