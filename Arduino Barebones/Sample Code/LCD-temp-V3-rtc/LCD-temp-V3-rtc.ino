@@ -104,18 +104,23 @@ void printSensor()
     tempMeasurement = round(tempMeasurement);
   
     lcd.print(tempMeasurement);
-    if (tempMeasurement<10) //prevent garbage for single digit temperature
+
+    // Print the degree symbol and C/F immediately after
+    // the temperature.
+    int cursorPosition;
+    if (tempMeasurement < 10)
     {
-      lcd.setCursor(3, 1);
-      lcd.print(" ");
+      cursorPosition = 3;
     }
-    // Adjust printing of the degree symbol and C/F if the temperature
-    // is over 100 degrees. (If that's in Celsius you have bigger problems.)
-    int cursorPosition = 4;
-    if (tempMeasurement > 99)
+    else if (tempMeasurement > 99)
     {
       cursorPosition = 5;
     }
+    else
+    {
+      cursorPosition = 4;
+    }
+    
     lcd.setCursor(cursorPosition++, 1);
       // Post-fix ++: cursorPosition increases by one AFTER it is used.
     lcd.print(char(223)); //the Degree symbol 
