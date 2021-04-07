@@ -98,8 +98,9 @@ void printSensor()
     
     float tempMeasurement = event.temperature;
     // The measurement is in Celsius. If you want it in Fahrenheit,
-    // uncomment the following line:
-    // tempMeasurement = (event.temperature * 1.8) + 32;
+    // uncomment the following two lines:
+//#define FAHRENHEIT
+//    tempMeasurement = (event.temperature * 1.8) + 32;
     int t = round(tempMeasurement);
   
     lcd.print(t);
@@ -111,7 +112,11 @@ void printSensor()
     lcd.setCursor(4, 1);
     lcd.print(char(223)); //the Degree symbol 
     lcd.setCursor(5, 1);
+#ifdef FAHRENHEIT
+    lcd.print("F   ");
+#else
     lcd.print("C   ");
+#endif
       
     lcd.setCursor(9, 1);
     lcd.print("H=");

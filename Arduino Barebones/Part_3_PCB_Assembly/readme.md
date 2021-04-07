@@ -83,6 +83,8 @@ All the following parts NEED to be placed in the correct position, since their p
 
 6x1 female header is labeled RTC screen on the **back side** of the PCB. This header has to be placed on the back of the PCB so that we can fit the RTC on it (there is no space to do so at the top of the PCB because of the LCD).
 
+Bonus: unbend the pins of your RTC 90 degrees so that the pins are straight.
+
 ### ATMega328
 
 Once you have completed soldering the parts, it is time to place the ATMega 328 on the socket. The pin 1 or the notch on the MCU has to be aligned with the notch on the socket.

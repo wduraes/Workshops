@@ -2,3 +2,4 @@
 .vscode/c_cpp_properties.json
 .vscode/settings.json
 .vscode/ipch/9e3fd5b7a0ca43cb/mmap_address.bin
+.DS_Store
