@@ -15,7 +15,7 @@ In this step, we'll get to know the PCB, remove the components from the breadboa
 
     **Q.** Can I load new sketches to my Clock once it is completed?
 
-    **A.** Yes! You can use the ICSP (in circuit serial programmer) which follows the standard pinout of the Arduino Dev boards. Your PCB has the function of each pin described to make your life simpler. 
+    **A.** Yes! You can use the ICSP (in circuit serial programmer) which follows the standard pinout of the Arduino Dev boards. Your PCB has the function of each pin described to make your life simpler. You will, however, need male-female jumper wires instead of the male-male wires you've been using up to this point with the breadboard.
 
 ![ICSP](../Images/icsp.png)
 
@@ -132,7 +132,6 @@ The backlight of the LCD is now connected to one of the digital pins on the ATME
 The code for this clock at its current stage is very basic with **plenty** space for improvements. Some of the changes you might consider doing as an exercise:
 
 1. Change the light threshold to the environment where the clock is
-1. Display temperature in Fahrenheit (instead of Celsius)
 1. Show the Date on the display (the RTC provides not only the time, but also the date). In this case you'll have to figure out how to provide an interface for date adjustment with the current 3 buttons.
 1. Play a bip or a little song with the buzzer at the top of the hours
 1. Make it an alarm clock. 
