@@ -95,18 +95,42 @@ void printSensor()
     lcd.print("T=");
     lcd.setCursor(2, 1);
     dht.temperature().getEvent(&event);
-    int t = event.temperature;
-    lcd.print(t);
-    if (t<10) //prevent garbage for single digit temperature
+    
+    float tempMeasurement = event.temperature;
+    // The measurement is in Celsius. If you want it in Fahrenheit,
+    // uncomment the following two lines:
+//#define FAHRENHEIT
+//    tempMeasurement = (event.temperature * 1.8) + 32;
+    tempMeasurement = round(tempMeasurement);
+  
+    lcd.print(tempMeasurement);
+
+    // Print the degree symbol and C/F immediately after
+    // the temperature.
+    int cursorPosition;
+    if (tempMeasurement < 10)
     {
-      lcd.setCursor(4, 1);
-      lcd.print(" ");      
+      cursorPosition = 3;
     }
-    lcd.setCursor(4, 1);
+    else if (tempMeasurement > 99)
+    {
+      cursorPosition = 5;
+    }
+    else
+    {
+      cursorPosition = 4;
+    }
+    
+    lcd.setCursor(cursorPosition++, 1);
+      // Post-fix ++: cursorPosition increases by one AFTER it is used.
     lcd.print(char(223)); //the Degree symbol 
-    lcd.setCursor(5, 1);
+    lcd.setCursor(cursorPosition, 1);
+#ifdef FAHRENHEIT
+    lcd.print("F   ");  // The spaces help clear old characters and costs nothing.
+#else
     lcd.print("C   ");
-      
+#endif
+
     lcd.setCursor(9, 1);
     lcd.print("H=");
     lcd.setCursor(11, 1);

@@ -42,7 +42,7 @@ void loop()
   {
     float tempMeasurement = event.temperature;
     
-    // The measurement is in Celcius. If you want it in Fahrenheit,
+    // The measurement is in Celsius. If you want it in Fahrenheit,
     // uncomment the following line:
     // tempMeasurement = (event.temperature * 1.8) + 32;
     
@@ -52,7 +52,12 @@ void loop()
   lcd.setCursor(10, 0);
   lcd.print("L:");
   lcd.setCursor(13, 0);  //set the cursor to the 4th column, second line
-  lcd.print(analogRead(A1));  
+  
+  // The LCD has three spaces remaining to display the value derived from
+  // the light sensor. Therefore we map the maximum and minimum values of
+  // analogRead to the maximum and minimum of three digits.
+  int light = map(analogRead(A1), 0, 1023, 0, 999);
+  lcd.print(light);  
 
   lcd.setCursor(0, 1);
   lcd.print("H:");

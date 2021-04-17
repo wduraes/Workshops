@@ -15,7 +15,7 @@ In this step, we'll get to know the PCB, remove the components from the breadboa
 
     **Q.** Can I load new sketches to my Clock once it is completed?
 
-    **A.** Yes! You can use the ICSP (in circuit serial programmer) which follows the standard pinout of the Arduino Dev boards. Your PCB has the function of each pin described to make your life simpler. 
+    **A.** Yes! You can use the ICSP (in circuit serial programmer) which follows the standard pinout of the Arduino Dev boards. Your PCB has the function of each pin described to make your life simpler. You will, however, need male-female jumper wires instead of the male-male wires you've been using up to this point with the breadboard.
 
 ![ICSP](../Images/icsp.png)
 
@@ -83,6 +83,8 @@ All the following parts NEED to be placed in the correct position, since their p
 
 6x1 female header is labeled RTC screen on the **back side** of the PCB. This header has to be placed on the back of the PCB so that we can fit the RTC on it (there is no space to do so at the top of the PCB because of the LCD).
 
+Bonus: unbend the pins of your RTC 90 degrees so that the pins are straight.
+
 ### ATMega328
 
 Once you have completed soldering the parts, it is time to place the ATMega 328 on the socket. The pin 1 or the notch on the MCU has to be aligned with the notch on the socket.
@@ -130,8 +132,8 @@ The backlight of the LCD is now connected to one of the digital pins on the ATME
 The code for this clock at its current stage is very basic with **plenty** space for improvements. Some of the changes you might consider doing as an exercise:
 
 1. Change the light threshold to the environment where the clock is
-1. Display temperature in Fahrenheit (instead of Celsius)
 1. Show the Date on the display (the RTC provides not only the time, but also the date). In this case you'll have to figure out how to provide an interface for date adjustment with the current 3 buttons.
+1. Automatically adjust for daylight savings.
 1. Play a bip or a little song with the buzzer at the top of the hours
 1. Make it an alarm clock. 
 
