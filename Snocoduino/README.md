@@ -38,7 +38,7 @@ This file is publicly available at [EasyEDA](https://easyeda.com/wduraes/SnocoDu
 The test code for the SnocoDuino involves blinking the Neopixel and pin 13 where an LED should be added along with a 330R resistor.
 Add the Adafruit NeoPixel library before running the code. 
 
-```   
+```C   
 #include <Adafruit_NeoPixel.h>
 #define PIN            9
 #define NUMPIXELS      1
