@@ -1,6 +1,6 @@
 ## SnocoDuino
 
-Simply put, Snocoduino is Snoco Makerspace implementation of the famous Arduino Uno board. 
+Simply put, Snocoduino is the Snoco Makerspace implementation of the famous Arduino Uno board. 
 As a matter of fact, it was modeled after the Arduino Nano Schematics with a twist.
 Arduino and all its different boards are open hardware meaning that it’s schematics are available for free and there are no “special” components making it hard / impossible to recreate. 
 
@@ -8,7 +8,7 @@ Arduino and all its different boards are open hardware meaning that it’s schem
 
 ## Sconoduino Characteristics:
 - Microcontroller: ATmega328
-- Operating Voltage: 5V
+- Operating Voltage: 5Vcc
 - Input Voltage (recommended): 7-12V
 - Input Voltage (limits): 6-20V
 - Digital I/O Pins: 14 (of which 6 provide PWM output)
