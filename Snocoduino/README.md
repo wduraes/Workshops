@@ -4,7 +4,7 @@ Simply put, Snocoduino is the Snoco Makerspace implementation of the famous Ardu
 As a matter of fact, it was modeled after the Arduino Nano Schematics with a twist.
 Arduino and all its different boards are open hardware meaning that it’s schematics are available for free and there are no “special” components making it hard / impossible to recreate. 
 
-  ![SnocoDuino Picture](Images/Snocoduino_Picture.PNG)
+<img src="Images/Snocoduino_Picture.PNG" width="70%">
 
 ## Sconoduino Characteristics:
 - Microcontroller: ATmega328
