@@ -2,8 +2,7 @@ const int sensorPin = 0;
 const int ledPin = 9;
 
 int lightVal;
-int i;
-
+int mappedLight;
 
 void setup()
 {
@@ -11,19 +10,19 @@ void setup()
   Serial.begin(9600);
 }
 
-
 void loop()
 {
   lightVal = analogRead(sensorPin);
   Serial.print("Sensor: ");
   Serial.println(lightVal);
 
+  //Function Map transforms the input range to another range specified in the function call
   //map(value, fromLow, fromHigh, toLow, toHigh)
-  i = map(lightVal, 0, 500, 0, 255); 
+  mappedLight = map(lightVal, 0, 500, 0, 255); 
   
   Serial.print("Output: ");
-  Serial.println(i);
-  analogWrite(9, i);
+  Serial.println(mappedLight);
+  analogWrite(9, mappedLight);
 
   delay(100);
 }
