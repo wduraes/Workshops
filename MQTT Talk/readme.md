@@ -9,17 +9,13 @@ This page was created to support the [MQTT open-talk](https://www.meetup.com/Sno
   - How can I tell? Hit the windows key, type "Winver", hit enter
   - If you have windows 2004 go for WSL 2
 - The previous step requires you to restart your computer.
-- Install Ubuntu 18.04 from [Windows Store](https://www.microsoft.com/en-us/p/ubuntu-1804-lts/9n9tngvndl3q?activetab=pivot:overviewtab) (it might work with other versions but I didn't try them)
+- Install Ubuntu 18.04 from [Windows Store](https://www.microsoft.com/en-us/p/ubuntu-1804-lts/9n9tngvndl3q?activetab=pivot:overviewtab) (it should work with newer versions like 20.04 but I didn't try them so all this guide will refer to 18.04)
 - Install Windows Terminal from [Windows Store](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab)
 - Install MQTT Fx client - [Link](https://mqttfx.jensd.de/)
 
 ## Step 2 - Toolchain - Windows Terminal
 
-- Setup WSL as the primary option on Windows Terminal
-
-```json
-"defaultProfile": "{hash that matches your Ubuntu 18.04 installation}",
-```
+- Install and open Windows Terminal
 
 - Test some of the coolest features on Terminal:
    - Full screen: alt+enter
