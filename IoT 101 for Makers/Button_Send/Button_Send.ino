@@ -15,11 +15,9 @@
   #define AIO_SERVER      "io.adafruit.com"
   #define AIO_USERNAME    "Your Adafruit account name"
   #define AIO_KEY         "Your Adafruit key"
-  //#define AIO_SERVERPORT  8883     // use 8883 for SSL
   #define AIO_SERVERPORT  1883                   
   WiFiClient client;
-  //WiFiClientSecure client;  // use WiFiFlientSecure for SSL
-
+  
   Adafruit_MQTT_Client mqtt(&client, AIO_SERVER, AIO_SERVERPORT, AIO_USERNAME, AIO_KEY);
   Adafruit_MQTT_Publish relay1 = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/IoT_Button");
   
@@ -51,17 +49,14 @@
     
     MQTT_connect();
     
-    if(digitalRead(5)==LOW && btn1Pressed ==0)
-    {
+    if(digitalRead(5)==LOW && btn1Pressed ==0) {
           Serial.println(Button-pressed");
-          if (relay1.publish("ON")) 
-            {
+          if (relay1.publish("ON")) {
               Serial.println(F("OK!"));
             }
           btn1Pressed=1; 
     }
-    else if(digitalRead(5)==HIGH && btn1Pressed==1)
-    {
+    else if(digitalRead(5)==HIGH && btn1Pressed==1) {
         btn1Pressed=0; 
     }   
 }
