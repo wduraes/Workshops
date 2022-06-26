@@ -6,6 +6,7 @@ LiquidCrystal lcd(12, 11, 10, 9, 8, 7);
 int light = 0;
 
 void setup() {
+  pinMode(3, OUTPUT);
   lcd.begin(16, 2);
   lcd.print("*** Embedded ***");
   lcd.setCursor(0, 1);
@@ -19,7 +20,7 @@ void loop()
     light = analogRead(A0);
     
     lcd.setCursor(0, 0);
-    lcd.print("Light Value:");
+    lcd.print("Light Val:");
     lcd.setCursor(12,0);
     lcd.print(light);
      
@@ -30,4 +31,9 @@ void loop()
     lcd.setCursor(15, 1);
     lcd.print(" ");
     delay(800);
+
+    if(light<700)
+      digitalWrite(3,LOW);
+    else
+      digitalWrite(3,HIGH);
 }
