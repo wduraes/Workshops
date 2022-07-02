@@ -4,11 +4,11 @@
 #define PEDGREEN   6
 #define PEDRED     5
 #define PEDBUTTON  7
-#define BUZZER      8
-#define YELLOWTORED   1000
-#define REDTOBLINK    2000
-#define BLINKTOGREEN  2000
-#define GREENFORCARS  3000
+#define BUZZER     8
+
+#define INTERVAL_MESSAGE1 5000
+unsigned long time_1 = 0;
+bool state1 = 0;
 
 bool ped = false;
 
@@ -31,16 +31,16 @@ void loop() {
   }
 
   if(ped)
-  {
-    //state machine
-    YellowToCars();
-    delay(2000);
-    RedToCars();
-    GreenForPed();
-    //delay(3000);
-    BlinkForPed();
-    delay(500);
-    ped = false;
+  {  
+    if(millis() > time_1 + INTERVAL_MESSAGE1){
+        //state machine
+        YellowToCars();
+        RedToCars();
+        GreenForPed();
+        BlinkForPed();
+        ped = false;
+        time_1 = millis();
+    }
   }
   else
   {
@@ -58,6 +58,7 @@ void GreenToCars(){
 void YellowToCars(){
     digitalWrite(CARGREEN,LOW);
     digitalWrite(CARYELLOW,HIGH);
+    delay(2000);
 }
 
 void RedToCars(){
@@ -89,4 +90,5 @@ void BlinkForPed(){
       digitalWrite(PEDRED,HIGH);
       delay(200);
     }
+    delay(500);
 }
