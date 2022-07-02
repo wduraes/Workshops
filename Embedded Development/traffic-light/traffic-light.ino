@@ -10,14 +10,7 @@
 #define BLINKTOGREEN  2000
 #define GREENFORCARS  3000
 
-unsigned long yellow = 0;
-unsigned long red = 0;
-unsigned long blinking = 0;
-unsigned long green = 0;
-
-bool ped = 0;
-bool RED = 0;
-bool YELLOW = 0;
+bool ped = false;
 
 void setup() {
   pinMode(CARGREEN,OUTPUT);
@@ -27,60 +20,73 @@ void setup() {
   pinMode(PEDRED,OUTPUT);
   pinMode(BUZZER,OUTPUT);
   pinMode(PEDBUTTON,INPUT);
-
 }
 
 void loop() {
+
   if(digitalRead(PEDBUTTON)==HIGH)
-    {
-      if(millis() > green + GREENFORCARS){             
-        ped = 1;
-      }
-    }
+  {
+    ped = true;
+    tone(8,1000,100);
+  }
 
-  if(YELLOW)
-    {
-      ped = 0;
-      digitalWrite(CARYELLOW,HIGH);
-           
-      if(millis() > yellow + YELLOWTORED){             
-        digitalWrite(CARYELLOW,LOW);
-        YELLOW = 0;
-        RED = 1;
-      }
-    }
-
-  if(ped){
-    digitalWrite(CARGREEN,LOW);
-    yellow = millis();
-    YELLOW = 1;
-    /*
-    digitalWrite(CARYELLOW,LOW);  
-    digitalWrite(CARRED,HIGH);
-    digitalWrite(PEDGREEN,HIGH);  
-    digitalWrite(PEDRED,LOW); 
+  if(ped)
+  {
+    //state machine
+    YellowToCars();
     delay(2000);
-    digitalWrite(CARRED,LOW); 
-    digitalWrite(PEDGREEN,LOW);  
-    ped = 0; 
-    */
-    green = millis();
+    RedToCars();
+    GreenForPed();
+    //delay(3000);
+    BlinkForPed();
+    delay(500);
+    ped = false;
   }
   else
   {
-    //digitalWrite(CARGREEN,HIGH);
-    //digitalWrite(PEDRED,HIGH);
+    RedForPed();
+    GreenToCars();
   }
+}
+  
 
+void GreenToCars(){
+    digitalWrite(CARRED,LOW);
+    digitalWrite(CARGREEN,HIGH);
 }
 
+void YellowToCars(){
+    digitalWrite(CARGREEN,LOW);
+    digitalWrite(CARYELLOW,HIGH);
+}
 
-/*
-    //control timer for process 1, which will be activated every 40ms
-    if(millis() > time_1 + INTERVAL_MESSAGE1){
-        time_1 = millis();
-          //here is your code 
-          state1 = not(state1);
-          digitalWrite(13,state1);
+void RedToCars(){
+    digitalWrite(CARRED,HIGH);
+    digitalWrite(CARYELLOW,LOW);
+}
+
+void GreenForPed(){
+    digitalWrite(PEDGREEN,HIGH);
+    digitalWrite(PEDRED,LOW);
+    for(int i=0;i<6;i++)
+    {
+      tone(8,400,100);
+      delay(400);
     }
-*/
+}
+
+void RedForPed(){
+    digitalWrite(PEDGREEN,LOW);
+    digitalWrite(PEDRED,HIGH);
+}
+
+void BlinkForPed(){
+    digitalWrite(PEDGREEN,LOW);    
+    for(int i=0;i<6;i++)
+    {
+      digitalWrite(PEDRED,LOW);
+      delay(200);
+      digitalWrite(PEDRED,HIGH);
+      delay(200);
+    }
+}
