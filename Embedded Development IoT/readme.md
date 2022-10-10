@@ -61,4 +61,6 @@ Board to the right has the CH340G (rectangular chip) which requires an additiona
 **How to install the CH340G driver** The team at Sparkfun created an amazing tutorial explaining the details here: https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all 
 
 
+## ESP8266 Pinout
 
+![Toolchain](Images/pinout.png)
