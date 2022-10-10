@@ -1,11 +1,10 @@
 #include <ESP8266WiFi.h>
 #include "Adafruit_MQTT.h"
 #include "Adafruit_MQTT_Client.h"
+#include <WiFiManager.h> // https://github.com/tzapu/WiFiManager
 
-#define WLAN_SSID       "SSID"
-#define WLAN_PASS       "password"
 #define AIO_SERVER      "io.adafruit.com"
-#define AIO_USERNAME    "Username"
+#define AIO_USERNAME    "USENRAME"
 #define AIO_KEY         "KEY"
 #define AIO_SERVERPORT  1883                   
 WiFiClient client;
@@ -39,7 +38,23 @@ ICACHE_RAM_ATTR void abrePorta(){
 }
 
 void setup() {
-  Serial.begin(115200); 
+  Serial.begin(115200);
+  WiFiManager wm;
+  bool res;
+
+    res = wm.autoConnect("ESP8266 SSID","password"); // password protected ap
+
+    if(!res) {
+        Serial.println("Failed to connect");
+        // ESP.restart();
+    } 
+    else {
+        //if you get here you have connected to the WiFi    
+        Serial.println("WiFi connected");
+        Serial.println("IP address: "); 
+        Serial.println(WiFi.localIP());
+    }
+  
   pinMode(doorPin,INPUT);
   pinMode(servoPin,OUTPUT);
   pinMode(buttonPin,INPUT);
@@ -47,23 +62,8 @@ void setup() {
 
   attachInterrupt(digitalPinToInterrupt(buttonPin), abrePorta, RISING);
 
-    // Connect to WiFi access point.
-    Serial.println(); Serial.println();
-    Serial.print("Connecting to ");
-    Serial.println(WLAN_SSID);
-  
-    WiFi.begin(WLAN_SSID, WLAN_PASS);
-    while (WiFi.status() != WL_CONNECTED) 
-    {
-      delay(500);
-      Serial.print(".");
-    }
-    Serial.println();
-    Serial.println("WiFi connected");
-    Serial.println("IP address: "); Serial.println(WiFi.localIP());
-    
-    // Setup MQTT subscriptions for all feeds.
-    mqtt.subscribe(&lockSub);
+  // Setup MQTT subscriptions for all feeds.
+  mqtt.subscribe(&lockSub);
 
   if(digitalRead(doorPin)==LOW){ //if the door is closed, and since the servo can't say its position, ensure by locking it
     Serial.println("INITIALIZE: Closing door");

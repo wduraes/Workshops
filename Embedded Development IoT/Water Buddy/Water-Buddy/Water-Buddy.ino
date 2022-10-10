@@ -19,11 +19,11 @@
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 
-#define WLAN_SSID       "PUSD-Guests"
-#define WLAN_PASS       "Safe&Secure22"
+#define WLAN_SSID       "SSID"
+#define WLAN_PASS       "password"
 #define AIO_SERVER      "io.adafruit.com"
-#define AIO_USERNAME  "wduraes"
-#define AIO_KEY       "aio_ShSn6884cp8nEqUCyuUFVtbCgEfM"
+#define AIO_USERNAME    "Username"
+#define AIO_KEY         "KEY"
 #define AIO_SERVERPORT 1883
 #define TELEMETRY_FREQUENCY_MILLISECS 30000
 #define DISPENSE_TIME_MILLISECS 1000

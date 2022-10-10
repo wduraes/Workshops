@@ -1,9 +1,8 @@
 #include <ESP8266WiFi.h>
 #include "Adafruit_MQTT.h"
 #include "Adafruit_MQTT_Client.h"
+#include <WiFiManager.h> // https://github.com/tzapu/WiFiManager
 
-#define WLAN_SSID       "SSID"
-#define WLAN_PASS       "password"
 #define AIO_SERVER      "io.adafruit.com"
 #define AIO_USERNAME    "Username"
 #define AIO_KEY         "KEY"
@@ -20,22 +19,24 @@ void MQTT_connect();
 void setup() {
     
   Serial.begin(115200);
-  pinMode(relayPin,OUTPUT);
+  WiFiManager wm;
+  bool res;
+
+    res = wm.autoConnect("ESP8266 SSID","password"); // password protected ap
+
+    if(!res) {
+        Serial.println("Failed to connect");
+        // ESP.restart();
+    } 
+    else {
+        //if you get here you have connected to the WiFi    
+        Serial.println("WiFi connected");
+        Serial.println("IP address: "); 
+        Serial.println(WiFi.localIP());
+    }
+
+    pinMode(relayPin,OUTPUT);
      
-    // Connect to WiFi access point.
-    Serial.println(); Serial.println();
-    Serial.print("Connecting to ");
-    Serial.println(WLAN_SSID);
-  
-    WiFi.begin(WLAN_SSID, WLAN_PASS);
-    while (WiFi.status() != WL_CONNECTED) {
-      delay(500);
-      Serial.print(".");
-      }
-    Serial.println();
-    Serial.println("WiFi connected");
-    Serial.println("IP address: "); Serial.println(WiFi.localIP());
-      
     // Setup MQTT subscriptions for all feeds.
     mqtt.subscribe(&relay);
   }
