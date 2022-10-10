@@ -22,7 +22,7 @@ Parts needed:
 1. Node-MCU ESP8266
 1. Jumper Wires
 1. LED
-1. Resistor 220 Omhs (red, red, beown) or 330 Ohms (orange, orange, brown)
+1. Resistor 220 Omhs (red, red, brown) or 330 Ohms (orange, orange, brown)
 1. USB **data** cable.
 
 Picture below shows the connections for the first test:
