@@ -101,6 +101,9 @@ void reconnect(){
 
 int getSoil(){
   int soil = analogRead(SOIL_PIN);
+  //while the Analog Read varies from 0 to 1028, the sensor never gets
+  //to extremes. So we need to mannually setup the sensor with a complete
+  //dry sensor and another read with it under water
   if(soil<280) soil=280;
   if(soil>650) soil=650;
   int soilMapped = map(soil,280,650,100,0);
@@ -155,12 +158,14 @@ void dispenseWater(){
   digitalWrite(PUMP_PIN,HIGH);
   delay(DISPENSE_TIME_MILLISECS);
   digitalWrite(PUMP_PIN,LOW);
-      //publish when we water the plant
+  //publish when we water the plant
   client.publish(AIO_USERNAME "/feeds/dispense", "1");
 }
 
 void pumpLogic(){
 
+  //TODO
+  //to be filled with the proper watering schedule and sensor threshold
   digitalWrite(RED_LED,HIGH);
   delay(200);
   digitalWrite(RED_LED,LOW);
