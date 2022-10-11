@@ -57,7 +57,7 @@ Type **PubSubClient**, wait to see the results, click on `PubSubClient` by **Nic
 
 ## Get Sample code
 
-Use the [led-light.ino](water-buddy/Water-Buddy.ino) sampe code in this directory.
+Use the [led-light.ino](Water-Buddy.ino) sampe code in this directory.
 
 Find the definitions for Wi-Fi and Adafruit Credentials and replace them with your own:
 
