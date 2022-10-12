@@ -36,31 +36,31 @@ For this sample you'll need:
 1. Resistor 1K Omhs (brown, black, red) to connect the LDR
 1. USB **data** cable.
 
-The illustration below shows the connections: 
+The illustration below shows the connections:
 
 ![Toolchain](../Images/led-setup.png)
 
-## Libraries needed 
+## Libraries needed
 
 On the Arduino IDE go to menu `Sketch/Include Library/Manage Libraries`
 
 Type Adafruit MQTT, wait to see the results, click on `Adafruit MQTT` by **Adafruit**, select the version 2.8.0 in the “Select Version” dropdown list, and then click Install.
 
-Type SSD1306, wait to see the results, click on `Adafruit SSD31306` by **Adafruit**, select the version 2.5.7 in the “Select Version” dropdown list, and then click Install. If it prompts you for additional libraries, please select “Install ALL” - see piture below.
+Type SSD1306, wait to see the results, click on `Adafruit SSD31306` by **Adafruit**, select the version 2.5.7 in the “Select Version” dropdown list, and then click Install. If it prompts you for additional libraries, please select “Install ALL” - see picture below.
 
 ![Toolchain](../Images/libraries.png)
 
 ## Get your credentials
 
-Visit https://io.adafruit.com log in with your account and click on the yellow icon with a key in the top right part of the page. 
+Visit https://io.adafruit.com log in with your account and click on the yellow icon with a key in the top right part of the page.
 
-It will show you your Username and Active Key. You need to copy both since we'll add these credentials to the smple code. 
+It will show you your Username and Active Key. You need to copy both since we'll add these credentials to the sample code.
 
 ![Toolchain](../Images/credentials.png)
 
 ## Get Sample code
 
-Use the [led-light.ino](led-light/led-light.ino) sampe code in this directory.
+Use the [led-light.ino](led-light/led-light.ino) sample code in this directory.
 
 Find the definitions for Wi-Fi and Adafruit Credentials and replace them with your own:
 
@@ -72,11 +72,11 @@ Find the definitions for Wi-Fi and Adafruit Credentials and replace them with yo
 #define AIO_KEY         "adafruit_key"
 ```
 
-1. Save your code. 
-1. Upload it to the dev kit. 
-1. Using the Arduino IDE ppen the serial monitor window
+1. Save your code.
+1. Upload it to the dev kit.
+1. Using the Arduino IDE open the serial monitor window
 
-Your device should be publishing light values and getting led commands now. 
+Your device should be publishing light values and getting led commands now.
 
 
 
