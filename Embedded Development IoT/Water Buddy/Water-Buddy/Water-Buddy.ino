@@ -30,7 +30,7 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 #define SOIL_PIN    A0  // pin connected to the soil moisture sensor
 #define PUMP_PIN    16   // pin connected to the water pump
-#define RED_LED     0  // pin connected to the red LED
+#define RED_LED     2  // pin connected to the red LED
 
 #define wet 520
 #define dry 740

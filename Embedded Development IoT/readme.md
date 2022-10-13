@@ -2,7 +2,7 @@
 
 ## Poway Adult School class
 
-These pages were created to support the Internet of Things class at the [Poway Adult School](https://www.powayusd.com/en-US/Departments/CareerTechnicalAdultEd/PAS/Home). They're not intended for self-study but feel free to use it and any of its resources to learn. 
+These pages were created to support the Internet of Things class at the [Poway Adult School](https://www.powayusd.com/en-US/Departments/CareerTechnicalAdultEd/PAS/Home). They're not intended for self-study but feel free to use it and any of its resources to learn.
 
 ## Add ESP8266 board support to the Arduino IDE
 
@@ -26,7 +26,7 @@ Parts needed:
 1. Node-MCU ESP8266
 1. Jumper Wires
 1. LED
-1. Resistor 220 Omhs (red, red, brown) or 330 Ohms (orange, orange, brown)
+1. Resistor 220 Ohms (red, red, brown) or 330 Ohms (orange, orange, brown)
 1. USB **data** cable.
 
 Picture below shows the connections for the first test:
