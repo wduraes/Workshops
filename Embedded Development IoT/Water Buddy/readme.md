@@ -55,10 +55,6 @@ On the Arduino IDE go to menu `Sketch/Include Library/Manage Libraries`
 
 Type **PubSubClient**, wait to see the results, click on `PubSubClient` by **Nick O'Leary**, select the version 2.8.0 in the “Select Version” dropdown list, and then click Install.
 
-Type SSD1306, wait to see the results, click on `Adafruit SSD31306` by **Adafruit**, select the version 2.5.7 in the “Select Version” dropdown list, and then click Install. If it prompts you for additional libraries, please select “Install ALL” - see picture below.
-
-![Toolchain](../Images/libraries.png)
-
 ## Get Sample code
 
 Use the [led-light.ino](Water-Buddy.ino) sample code in this directory.

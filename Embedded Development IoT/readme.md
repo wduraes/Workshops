@@ -41,8 +41,9 @@ Picture below shows the connections for the first test:
 4. Plug your ESP8266 using an USB **DATA cable**
 5. Select the correct COM port under Tools/Port. See section below to find out which COM port is the correct one.
 6. Select the NODE MCU 1.0 under EP8266 `Tools/Board/ESP8266 Boards/Node MCU 1.0 (ESP-12E module)`
-7. Upload your code to the board.
-8. Did the LED blink? GREAT! Your development environment is correctly setup for the next hand-on labs.
+7. Under `Tools/Upload Speed` select `256000` for faster uploads.
+8. Upload your code to the board.
+9. Did the LED blink? GREAT! Your development environment is correctly setup for the next hand-on labs.
 
 ## How to find the right COM port?
 
