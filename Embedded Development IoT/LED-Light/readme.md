@@ -32,8 +32,8 @@ For this sample you'll need:
 1. Jumper Wires
 1. LDR (Light sensor)
 1. LED (any color)
-1. Resistor 220 Omhs (red, red, brown) or 330 Ohms (orange, orange, brown) to connect the LED
-1. Resistor 1K Omhs (brown, black, red) to connect the LDR
+1. Resistor 220 Ohms (red, red, brown) or 330 Ohms (orange, orange, brown) to connect the LED
+1. Resistor 1K Ohms (brown, black, red) or 2K2 (red, red, red) to connect the LDR
 1. USB **data** cable.
 
 The illustration below shows the connections:
@@ -44,11 +44,7 @@ The illustration below shows the connections:
 
 On the Arduino IDE go to menu `Sketch/Include Library/Manage Libraries`
 
-Type Adafruit MQTT, wait to see the results, click on `Adafruit MQTT` by **Adafruit**, select the version 2.8.0 in the “Select Version” dropdown list, and then click Install.
-
-Type SSD1306, wait to see the results, click on `Adafruit SSD31306` by **Adafruit**, select the version 2.5.7 in the “Select Version” dropdown list, and then click Install. If it prompts you for additional libraries, please select “Install ALL” - see picture below.
-
-![Toolchain](../Images/libraries.png)
+Type Adafruit MQTT, wait to see the results, click on `Adafruit MQTT` by **Adafruit**, select the version 2.8.0 in the “Select Version” dropdown list, and then click Install. If it prompts you for additional libraries, please select “Install ALL”.
 
 ## Get your credentials
 
@@ -60,7 +56,7 @@ It will show you your Username and Active Key. You need to copy both since we'll
 
 ## Get Sample code
 
-Use the [led-light.ino](led-light/led-light.ino) sample code in this directory.
+Use the [led-light.ino](led-light/led-light.ino) sample code in this directory and click on the "Copy raw Contents" button at the top right of the code window.
 
 Find the definitions for Wi-Fi and Adafruit Credentials and replace them with your own:
 
@@ -74,11 +70,22 @@ Find the definitions for Wi-Fi and Adafruit Credentials and replace them with yo
 
 1. Save your code.
 1. Upload it to the dev kit.
-1. Using the Arduino IDE open the serial monitor window
+1. Open the serial monitor window to see the connection progress:
+
+```C
+...........
+WiFi connected
+IP address:
+10.127.12.7
+Connecting to MQTT... MQTT Connected!
+Sending light val 129...
+```
+
+Once you see this message in the Serial monitor, go to https://io.Adafruit.com, open your `Led Control` dashboard to see the data being published showing up on your stream block.
+
+Also test your LED control by flipping the toggles switch on and off and see if the LED onboard matches the expected behavior.
 
 Your device should be publishing light values and getting led commands now.
 
-
-
-
+**Attention** please note your Adafruit account only allows for 30 data points per minute, which means if you flip your led on and off more than 30 times you'll get your service throttled. 
 
