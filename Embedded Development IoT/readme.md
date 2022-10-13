@@ -31,35 +31,35 @@ Picture below shows the connections for the first test:
 
 ## Testing the IDE support
 
-1. Open the blink example `file/examples/basic/blink`
-1. Replace the `LED_BUILTIN` for the GPIO pin 4 (just type `4`)
-1. Plug your ESP8266 using an USB **DATA cable**
-1. Select the correct COM port (under Tools/Port)
-1. Select the NODE MCU 1.0 under EP8266 `Tools/Board/ESP8266 Boards/Node MCU 1.0 (ESP-12E module)`
-1. Upload your code to the board.
+1. Go to Arduino IDE
+2. Open the blink example `file/examples/basic/blink`
+3. Replace the `LED_BUILTIN` for the GPIO pin 2 (just type `2`) you'll replace it 3 times in the blink code.
+4. Plug your ESP8266 using an USB **DATA cable**
+5. Select the correct COM port under Tools/Port. See section below to find out which COM port is the correct one.
+6. Select the NODE MCU 1.0 under EP8266 `Tools/Board/ESP8266 Boards/Node MCU 1.0 (ESP-12E module)`
+7. Upload your code to the board.
+8. Did the LED blink? GREAT! Your development environment is correctly setup for the next hand-on labs.
 
 ## How to find the right COM port?
 
 1. On Windows, open the Device manager and expand Ports (COM & LPT)
 1. If you have the driver correctly installed, you should see the `CP210x` showing up.
-1. Use the COM port asigned to your device. 
+1. Use the COM port assigned to your device.
 1. Remember to check this often because Windows might assign different COM Port numbers when you plug and unplug the device.
 
 ## CP2102 x CH340G (and why should you care)
 
-Both parts refer to the USB to Serial chip onboard on your Node MCU Dev Kit. 
+Both parts refer to the USB to Serial chip onboard on your Node MCU Dev Kit.
 
-It works as a bridge between the ESP8266 (which has NO USB support)  and your computer, so you can program it. 
+It works as a bridge between the ESP8266 (which has NO native USB support) and your computer, so you can program it.
 
 ![Toolchain](Images/boards.png)
 
+Board to the left has the **CP2102** (square chip), and normally its driver is installed with the Arduino IDE so you probably won’t need to do anything for it to work.S
 
-Board to the left has the **CP2102** (square chip), and nomrally its driver is installed with the Arduino IDE so you probably won’t need to do anything for it to work.
+Board to the right has the **CH340G** (rectangular chip) which requires an additional driver, so don’t throw away your device if it doesn't work. It might not be defective: it only misses the proper driver.
 
-Board to the right has the **CH340G** (rectangular chip) which requires an additional driver, so don’t throw away your device. It might not be defective; it only misses the driver. 
-
-**How to install the CH340G driver** The team at Sparkfun created an amazing tutorial explaining the details here: https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all 
-
+**How to install the CH340G driver** The team at Sparkfun created an amazing tutorial explaining the details here: https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all
 
 ## ESP8266 Pinout
 
