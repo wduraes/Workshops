@@ -54,4 +54,4 @@ The activation of the water pump is not part of this sample, and it will vary ac
 
 Go back to your code, and replace the values at lines 11 and 12 for the values you got.
 
-Uncomment lines 52 and 59 by removing the comments opening `/*`and the comments closing `*/` then test your code again to see the values in a percentile scale. 
+Uncomment lines 52 and 59 by removing the comments opening `/*`and the comments closing `*/` then test your code again to see the values in a percentile scale.

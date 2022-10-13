@@ -32,6 +32,9 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 #define PUMP_PIN    16   // pin connected to the water pump
 #define RED_LED     0  // pin connected to the red LED
 
+#define wet 520
+#define dry 740
+
 bool dispenseNow = false;
 
 #define MSG_BUFFER_SIZE (50)
@@ -104,9 +107,9 @@ int getSoil(){
   //while the Analog Read varies from 0 to 1028, the sensor never gets
   //to extremes. So we need to mannually setup the sensor with a complete
   //dry sensor and another read with it under water
-  if(soil<280) soil=280;
-  if(soil>650) soil=650;
-  int soilMapped = map(soil,280,650,100,0);
+  if(soil<wet) soil=wet;
+  if(soil>dry) soil=dry;
+  int soilMapped = map(soil,wet,dry,100,0);
   return(soilMapped); 
 }
 

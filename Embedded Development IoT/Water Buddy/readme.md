@@ -39,11 +39,11 @@ For this sample you'll need:
 1. Jumper Wires
 1. LED (any color)
 1. Resistor 220 Ohms (red, red, brown) or 330 Ohms (orange, orange, brown) to connect the LED
-[Control the DC motor via either a Relay or a MOSFET]
-1. Resistor 160 Ohms (brown, green, brown) to connect the Gate of th MOSFET
+1. Resistor 330 Ohms (orange, orange, brown) connected to the base of the transistor
 1. 5V DC Water Pump.
-1. OLED Screen.
-1. USB **data** cable.
+2. 2N3904 NPN transistor
+3. OLED Screen.
+4. USB **data** cable.
 
 The illustration below shows the connections:
 
