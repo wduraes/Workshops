@@ -66,6 +66,14 @@ Board to the right has the **CH340G** (rectangular chip) which requires an addit
 
 **How to install the CH340G driver** The team at Sparkfun created an amazing tutorial explaining the details here: https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all
 
+## USB Data Cable
+
+When programming the ESP8266 (or any other Dev Kit which has a micro-USB cable) you need to use a data cable. Some of the cheaper cables are really not **Data Cables** but rather **Charging Cables** which are good for charging devices but not for programming microcontrollers.
+
+You should suspect of having a charging cable when you connect your device to the PC and don't hear the characteristic sound Windows make when USB devices are either plugged or unplugged. If that's the case get another cable and test it again.
+
+![Toolchain](Images/datacable.png)
+
 ## ESP8266 Pinout
 
 ![Toolchain](Images/pinout.png)

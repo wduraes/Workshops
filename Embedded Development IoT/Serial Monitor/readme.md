@@ -35,8 +35,8 @@ If all you see in the Serial Monitor is some sort of gibberish data like in the 
 
 A full reference set can be found in the [Arduino reference](https://www.arduino.cc/reference/en/language/functions/communication/serial/) but we're presenting some of the most basic commands here as well:
 
-1. **Serial.begin(speed)** Sets the data rate in bits per second (baud) for serial data transmission. For communicating with Serial Monitor, make sure to use one of the baud rates listed in the menu at the bottom right corner of its screen. In most Arduino samples you'll find this speed set to either 9600(for slower MCUs) and 115200 (for faster ones).
-2. **Serial.print()** Prints data to the serial port as human-readable ASCII text. This command can take many forms. Numbers are printed using an ASCII character for each digit. Floats are similarly printed as ASCII digits, defaulting to two decimal places. Bytes are sent as a single character. Characters and strings are sent as is. Examples:
+1. **Serial.begin(speed)**: Sets the data rate in bits per second (baud) for serial data transmission. For communicating with Serial Monitor, make sure to use one of the baud rates listed in the menu at the bottom right corner of its screen. In most Arduino samples you'll find this speed set to either 9600(for slower MCUs) and 115200 (for faster ones).
+2. **Serial.print()**: Prints data to the serial port as human-readable ASCII text. This command can take many forms. Numbers are printed using an ASCII character for each digit. Floats are similarly printed as ASCII digits, defaulting to two decimal places. Bytes are sent as a single character. Characters and strings are sent as is. Examples:
    1. `Serial.print(78)` gives "78"
    2. `Serial.print(1.23456)` gives "1.23"
    3. `Serial.print('N')` gives "N"
@@ -52,7 +52,7 @@ A full reference set can be found in the [Arduino reference](https://www.arduino
     6. `Serial.print(1.23456, 2)` gives "1.23"
     7. `Serial.print(1.23456, 4)` gives "1.2346"
 
-3. **Serial.println** Works like the `Serial.print` command, but adds a carriage return (ASCII 13 or `\r`) and a new line (ASCII 10 or `n`).
-4. **F function** Used when we wish to save SRAM memory space by moving the string to FLASH emory instead. Since FLASH memory is normally way larger than SRAM it makes sense to use is especially with lower spec MCUs. You can find more information [here](https://arduinogetstarted.com/faq/what-is-serial.println-f).
+3. **Serial.println()**: Works like the `Serial.print` command, but adds a carriage return (ASCII 13 or `\r`) and a new line (ASCII 10 or `n`).
+4. **F function**: Used when we wish to save SRAM memory space by moving the string to FLASH emory instead. Since FLASH memory is normally way larger than SRAM it makes sense to use is especially with lower spec MCUs. You can find more information [here](https://arduinogetstarted.com/faq/what-is-serial.println-f).
    1. Example of normal usage consuming SRAM: `Serial.println("ArduinoGetStarted.com");`
-   2. 1. Example of normal usage consuming SRAM: `Serial.println(F("ArduinoGetStarted.com")));`
+   2. Example of normal usage consuming SRAM: `Serial.println(F("ArduinoGetStarted.com")));`
