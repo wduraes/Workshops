@@ -16,11 +16,13 @@ Adafruit_MQTT_Subscribe relay = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME "/fe
 void MQTT_connect();
 
 #define relayPin 4
+#define ledPin 5
    
 void setup() {
     
   Serial.begin(115200);
   pinMode(relayPin,OUTPUT);
+  pinMode(ledPin,OUTPUT);
      
     // Connect to WiFi access point.
     Serial.println(); Serial.println();
@@ -43,6 +45,11 @@ void setup() {
   void loop() {
   
     MQTT_connect();
+
+    digitalWrite(ledPin,HIGH);
+    delay(200);
+    digitalWrite(ledPin,LOW);
+    delay(200);
    
     Adafruit_MQTT_Subscribe *subscription;
     while ((subscription = mqtt.readSubscription(20000))) 

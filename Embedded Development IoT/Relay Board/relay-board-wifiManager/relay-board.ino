@@ -15,6 +15,7 @@ Adafruit_MQTT_Subscribe relay = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME "/fe
 void MQTT_connect();
 
 #define relayPin 4
+#define ledPin 5
    
 void setup() {
     
@@ -36,6 +37,7 @@ void setup() {
     }
 
     pinMode(relayPin,OUTPUT);
+    pinMode(ledPin,OUTPUT);
      
     // Setup MQTT subscriptions for all feeds.
     mqtt.subscribe(&relay);
@@ -44,6 +46,11 @@ void setup() {
   void loop() {
   
     MQTT_connect();
+
+    digitalWrite(ledPin,HIGH);
+    delay(200);
+    digitalWrite(ledPin,LOW);
+    delay(200);
    
     Adafruit_MQTT_Subscribe *subscription;
     while ((subscription = mqtt.readSubscription(20000))) 
