@@ -6,13 +6,13 @@ If that's not the case, this method is not good, and a Wi-Fi manager library sho
 
 ### Direct connection
 
-The code snippet below shows the connection using credentials baked into the source code:
+The code snippet below shows the connection using credentials baked into the source code (remember to change the credentials to your own before testing):
 
 ```c
 #include <ESP8266WiFi.h>
 
-#define WLAN_SSID       "SSID"
-#define WLAN_PASS       "password"
+#define WLAN_SSID       "SSID"      //replace this by your Wi-Fi credentials
+#define WLAN_PASS       "password"  //replace this by your Wi-Fi credentials
                 
 void setup() {
 Serial.begin(115200); 
