@@ -28,6 +28,8 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 #define TELEMETRY_FREQUENCY_MILLISECS 30000
 #define DISPENSE_TIME_MILLISECS 1000
 
+#define WATER_FREQUENCY_MILLISECS 30000
+
 #define SOIL_PIN    A0  // pin connected to the soil moisture sensor
 #define PUMP_PIN    16   // pin connected to the water pump
 #define RED_LED     2  // pin connected to the red LED
@@ -105,7 +107,7 @@ void reconnect(){
 int getSoil(){
   int soil = analogRead(SOIL_PIN);
   //while the Analog Read varies from 0 to 1028, the sensor never gets
-  //to extremes. So we need to mannually setup the sensor with a complete
+  //to extremes. So we need to manually setup the sensor with a complete
   //dry sensor and another read with it under water
   if(soil<wet) soil=wet;
   if(soil>dry) soil=dry;
@@ -173,7 +175,15 @@ void pumpLogic(){
   delay(200);
   digitalWrite(RED_LED,LOW);
   delay(200);
- 
+
+  if(getSoil()<20){ //check if plant needs water: soil moisture < 20%
+    unsigned long now = millis();
+    if (now - lastWater > WATER_FREQUENCY_MILLISECS){ //check if 30 seconds have passed since the last water dispense
+    lastWater = now;
+    dispenseWater();
+    }
+  }
+
 }
 
 void sendTelemetry()
@@ -210,24 +220,31 @@ void setup(){
 }
 
 void loop(){
+  
+  //takes care of Wi-Fi and MQTT reconnection
   if (!client.connected()){
     reconnect();
   }
   client.loop();
 
-  unsigned long now = millis();
   //check if it is time to do some publishing
-  if (now - lastMsg > TELEMETRY_FREQUENCY_MILLISECS){
+  //adjust TELEMETRY_FREQUENCY_MILLISECS if you want to publish in a different interval
+  unsigned long now = millis();
+    if (now - lastMsg > TELEMETRY_FREQUENCY_MILLISECS){
     lastMsg = now;
     sendTelemetry();    
   }
 
-  //Handles the callback to dispense water now
+  //Handles the callback to dispense water
   if (dispenseNow){
     dispenseWater();
     dispenseNow = false;
     Serial.println("Dispense command complete!");
   }
+  
+  //show current moisture level in the OLE screen
   displaySoilValue();
+
+  //call water pump function to check if plant needs water
   pumpLogic();       
 }
