@@ -27,7 +27,7 @@ Visit https://io.adafruit.com log in with your account and click on the top menu
 1. Add a stream connected to the dispense topic
 1. Create a new feed/topic: dispense-command
 1. Add a momentary button connected to this topic
-1. Create a new topic: soil
+1. Create a new topic: soil-moisture
 1. Add a stream connected to this topic
 1. Add a line chart connected to this topic
 
@@ -57,7 +57,7 @@ Type **PubSubClient**, wait to see the results, click on `PubSubClient` by **Nic
 
 ## Get Sample code
 
-Use the [led-light.ino](Water-Buddy.ino) sample code in this directory.
+Use the [Water-Buddy.ino](Water-Buddy/Water-Buddy.ino) sample code in this directory.
 
 Find the definitions for Wi-Fi and Adafruit Credentials and replace them with your own:
 
