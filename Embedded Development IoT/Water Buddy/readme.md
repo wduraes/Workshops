@@ -59,14 +59,33 @@ Type **PubSubClient**, wait to see the results, click on `PubSubClient` by **Nic
 
 Use the [Water-Buddy.ino](Water-Buddy/Water-Buddy.ino) sample code in this directory.
 
-Find the definitions for Wi-Fi and Adafruit Credentials and replace them with your own:
+Find the definitions for Wi-Fi and Adafruit Credentials and replace them with your own.
+
+Following Wi-Fi and Adafruit credentials, there are several `#define` which might need your attention:
+
+1. `TELEMETRY_FREQUENCY_MILLISECS` Initially adjusted for 5000 milliseconds (5 seconds). You can adjust it to any value, but remember that a free Adafruit account only allows for 30 data points per minute.
+1. `DISPENSE_TIME_MILLISECS` Initially set for 3 seconds, it defines for how long will the water pump be on every time the sensor detects the soil is under the specified threshold.
+1. `MINIMUM_MOISTURE` Initially set for 20%, defines the minimum bar for soil moisture before turning the water pump on. It will vary greatly depending on the type of the plant you have.
+1. `WATER_FREQUENCY_MILLISECS` Defined initially to 30 seconds, it defines for how long will the water pump wait for the water to spread, before turning on again.
 
 ```C
 #define WLAN_SSID       "SSID"
 #define WLAN_PASS       "password"
-#define AIO_SERVER      "io.adafruit.com" //stays as it is
-#define AIO_USERNAME    "adafruit_username"
-#define AIO_KEY         "adafruit_key"
+#define AIO_SERVER      "io.adafruit.com"
+#define AIO_USERNAME    "Username"
+#define AIO_KEY         "KEY"
+
+#define TELEMETRY_FREQUENCY_MILLISECS 5000 //send telemetry data every 5 seconds
+#define DISPENSE_TIME_MILLISECS 3000       //will turn the water pump on for 3 seconds at a time 
+#define WATER_FREQUENCY_MILLISECS 30000    //wait for 30 seconds before watering again to allow water to spread
+#define MINIMUM_MOISTURE 20    //define the minimum moisture level before start the water pump on. 
+
+#define wet 520 //result of the calibration of your sensor for the lower threshold
+#define dry 740 //result of the calibration of your sensor for the upper threshold
+
+#define SOIL_PIN    A0  // pin connected to the soil moisture sensor
+#define PUMP_PIN    16   // pin connected to the water pump
+#define RED_LED     2  // pin connected to the red LED
 ```
 
 1. Save your code.

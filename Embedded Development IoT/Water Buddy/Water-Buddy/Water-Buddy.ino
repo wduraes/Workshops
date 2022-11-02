@@ -13,11 +13,9 @@
 
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 32 // OLED display height, in pixels
-
 #define OLED_RESET  -1 // ESP32  4 // Reset pin # (or -1 if sharing Arduino reset pin)
 #define SCREEN_ADDRESS 0x3C ///< See datasheet for Address; 0x3D for 128x64, 0x3C for 128x32
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
-
 
 #define WLAN_SSID       "SSID"
 #define WLAN_PASS       "password"
@@ -25,23 +23,24 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 #define AIO_USERNAME    "Username"
 #define AIO_KEY         "KEY"
 #define AIO_SERVERPORT 1883
-#define TELEMETRY_FREQUENCY_MILLISECS 30000
-#define DISPENSE_TIME_MILLISECS 1000
 
-#define WATER_FREQUENCY_MILLISECS 30000
+#define TELEMETRY_FREQUENCY_MILLISECS 5000 //send telemetry data every 5 seconds
+#define DISPENSE_TIME_MILLISECS 3000       //will turn the water pump on for 3 seconds at a time 
+#define WATER_FREQUENCY_MILLISECS 30000    //wait for 30 seconds before watering again to allow water to spread
+#define MINIMUM_MOISTURE 20    //define the minimum moisture level before start the water pump on. 
+
+#define wet 520 //result of the calibration of your sensor for the lower threshold
+#define dry 740 //result of the calibration of your sensor for the upper threshold
 
 #define SOIL_PIN    A0  // pin connected to the soil moisture sensor
 #define PUMP_PIN    16   // pin connected to the water pump
 #define RED_LED     2  // pin connected to the red LED
 
-#define wet 520
-#define dry 740
-
 bool dispenseNow = false;
-
 #define MSG_BUFFER_SIZE (50)
 char msg[MSG_BUFFER_SIZE];
 unsigned long lastMsg = 0;
+unsigned long lastWater = 0;
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -176,14 +175,13 @@ void pumpLogic(){
   digitalWrite(RED_LED,LOW);
   delay(200);
 
-  if(getSoil()<20){ //check if plant needs water: soil moisture < 20%
+  if(getSoil()<MINIMUM_MOISTURE){ //check if plant needs water: soil moisture < 20%
     unsigned long now = millis();
     if (now - lastWater > WATER_FREQUENCY_MILLISECS){ //check if 30 seconds have passed since the last water dispense
     lastWater = now;
-    dispenseWater();
+    dispenseNow = true;
     }
   }
-
 }
 
 void sendTelemetry()
@@ -212,7 +210,7 @@ void setup(){
 
   if(!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS)) {
     Serial.println(F("SSD1306 allocation failed"));
-    for(;;); // Don't proceed, loop forever
+    for(;;); // If can't find the OLED Screen, don't proceed, loop forever
   }
 
   displayInitialMsg();
@@ -228,14 +226,13 @@ void loop(){
   client.loop();
 
   //check if it is time to do some publishing
-  //adjust TELEMETRY_FREQUENCY_MILLISECS if you want to publish in a different interval
   unsigned long now = millis();
     if (now - lastMsg > TELEMETRY_FREQUENCY_MILLISECS){
     lastMsg = now;
     sendTelemetry();    
   }
 
-  //Handles the callback to dispense water
+  //Dispense water mechanism
   if (dispenseNow){
     dispenseWater();
     dispenseNow = false;
