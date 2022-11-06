@@ -2,12 +2,12 @@
 #include "Adafruit_MQTT.h"
 #include "Adafruit_MQTT_Client.h"
 
-#define WLAN_SSID       "Wonders"
-#define WLAN_PASS       "Jacare24"
+#define WLAN_SSID       "SSID"
+#define WLAN_PASS       "password"
 #define AIO_SERVER      "io.adafruit.com"
-#define AIO_USERNAME    "wduraes"
-#define AIO_KEY         "aio_GsRC26WNIkcTxgBTAsmlcjYVDVOw"
-#define AIO_SERVERPORT  8883                   
+#define AIO_USERNAME    "adafruit_username"
+#define AIO_KEY         "adafruit_key"
+#define AIO_SERVERPORT   8883                  
 WiFiClientSecure client;
 
 Adafruit_MQTT_Client mqtt(&client, AIO_SERVER, AIO_SERVERPORT, AIO_USERNAME, AIO_KEY);
