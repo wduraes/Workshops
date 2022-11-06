@@ -54,7 +54,7 @@ It will show you your Username and Active Key. You need to copy both since we'll
 
 ![Toolchain](../Images/credentials.png)
 
-## Get Ligh Sensor sample code
+## Get Light Sensor sample code
 
 Use the [light-sensor.ino](light-sensor/light-sensor.ino) sample code in this directory and click on the "Copy raw Contents" button at the top right of the code window.
 
