@@ -76,4 +76,6 @@ You should suspect of having a charging cable when you connect your device to th
 
 ## ESP8266 Pinout
 
+Image below is not official and your mileage might vary depending on the dev kit you get. Specifically calling the pins marked with an X "Not Safe for use" are remarks based on my experience with trial and error. Always test your board before committing to a design.
+
 ![Toolchain](Images/pinout.png)
