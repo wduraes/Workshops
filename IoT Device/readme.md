@@ -147,6 +147,10 @@ Illustration below was taken directly from EASY EDA, the online tool I used to d
 
 ## Designing the PCB
 
+<img src="../Images/pcb-top.png" width="70%">
+
+<img src="../Images/pcb-bottom.png" width="70%">
+
 ## Testing the final product
 
 adding libraries with Arduino IDE to test
