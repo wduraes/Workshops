@@ -163,16 +163,16 @@ All improvements below were made to the silk layer (both top and bottom):
 1. Added a large white label at the lower left corner of the board, so that users and write things there like "Device 1", "Living Room", etc.
 1. Added GPIO labels to the bottom of the board (before we only had the labels at the top)
 1. Added GPIO guidance to the bottom of the board, so anytime I need to use any of the peripherals I'll know which GPIO pin is meant for that.
-1. Added an asterisk to the Neopixel to help aligning the part before woldering
+1. Added an asterisk to the Neopixel to help aligning the part before soldering
 1. Added a couple of warnings regarding power consumption and voltage.
-1. Added a link to the Azure Iot libraries which can be used with this board.
+1. Added a link to the Azure IoT libraries which can be used with this board.
 1. Added a + sign on the buzzer
 
 Future improvements:
 
 1. Mode headers away from ESP module to have a hat that won't cover the antenna
 1. Fix D1 package or remove the part altogether
-1. Add decoupling 100nF capacitor close to the Neopixel
+1. Add a missing decoupling 100nF capacitor close to the Neopixel
 
 **PCB top view**
 
@@ -182,17 +182,35 @@ Future improvements:
 
 <img src="../Images/pcb-bottom.png" width="50%">
 
+BOM - Bill of materials
+
+| Package | **Quantity** | **Name** | **** | Package | **Quantity** | **Name** |
+|---|---|---|---|---|---|---|
+| SMD | 1 | ESP32 |  | THC | 1 | 10uF Electrolytic Capacitor |
+| SMD | 1 | AMS1117 3V3 |  | THC | 1 | 5V Buzzer |
+| SMD | 1 | Micro USB connector |  | THC | 1 | LDR |
+| SMD | 1 | WS2812 NeoPixel |  | THC | 1 | DHT11 |
+| SMD | 1 | Shottky Diode |  | THC | 1 | 2n3904 |
+| SMD | 2 | LED |  | THC | 1 | 2n7000 |
+| SMD | 5 | 100nF Capacitor |  | THC | 1 | 16x1 Male Header |
+| SMD | 4 | 10K Resistor |  | THC | 2 | 6x6 Tactile Button |
+| SMD | 1 | 100K Resistor |  | THC | 1 | 2x1 Male Header |
+| SMD | 2 | 1K Resistor |  | THC | 2 | Jumper |
+| SMD | 1 | 100R Resistor |  |  | |   |
+| SMD | 1 | 4k7 Resistor |  |  |  |   |
+| SMD | 1 | 330R Resistor |  |  | |   |
+
+**All SMD parts are 0805**
+
 ## Testing the final product
 
-adding libraries with Arduino IDE to test
+Before the adding libraries with Arduino IDE to test
 
 programmers can't power the device. need external power to the ESP
 
 some of the FR232RL board didn't work at all
 
 add wiring picture showing connections
-
-## Power consumption tests
 
 ## Adding IoT to the IoT device (finally!!)
 
