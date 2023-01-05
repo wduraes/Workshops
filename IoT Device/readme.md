@@ -227,6 +227,8 @@ With the external power plugged in, it is time to setup the programmer via the h
 
 There's no need to connect any other pins from the programmer into the ESP32.
 
+<img src="../Images/programming.png" width="100%">
+
 Normally, at this point I would do a very simple test with the Blink sketch, replacing the LED_BUILTIN by the LEDs on pin 26 or 27 (there is a nice cheat sheet with all pins in the back of the board, so it is easy to refer to any of the onboard components).
 
 Close the PROG header pins with the jumper, and push the RESET button once to get the device into programming mode. Upload your code normally and once this is finished, remove the PROG jumper and hit RESET once again.
