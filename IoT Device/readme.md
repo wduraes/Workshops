@@ -202,6 +202,10 @@ The table below has all the parts used in this project. **All SMD parts are 0805
 | SMD | 1 | 4k7 Resistor |  |  |  |   |
 | SMD | 1 | 330R Resistor |  |  | |   |
 
+**Assembly Guidance**
+
+<img src="../Images/guidance.png" width="100%">
+
 ## Testing the final product
 
 Once the final device has been assembled, I recommend performing a quick visual inspection has been performed for any obvious solder bridges and other issues, and checking for short circuits between VCC/VDD and GND. If you don't find any issues, it is time to power the device.
