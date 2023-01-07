@@ -1,3 +1,10 @@
+# DHT11 with a button
+
+This sample shows how to add a button to pin 3 which will control if the LCD display will show the temperature in Celsius or Fahrenheit.
+
+It is a more advanced sample which uses an interrupt triggered by the button.
+
+```c
 #include <LiquidCrystal.h>  
 #include <DHT.h>
 #include <DHT_U.h>
@@ -81,3 +88,15 @@ void Interrupt_Handling()
   show_Celsius = !(show_Celsius);
   delay(100);
 }
+
+```
+
+### Code explained
+
+This code uses a temperature sensor and an LCD display to create a thermostat. The code includes the necessary libraries for using the LiquidCrystal library for the LCD display and the DHT library for the temperature sensor. The temperature sensor is of the DHT11 type, and is connected to digital pin 4 on the Arduino board.
+
+In the setup() function, the LCD display is initialized, and a message is displayed on the screen. The temperature sensor is also initialized. An interrupt is also set up on digital pin 2, so that when a rising edge is detected on that pin, the Interrupt_Handling function is called.
+
+The loop() function continuously reads the temperature and humidity from the sensor, and displays the values on the LCD display. The values are displayed in either Celsius or Fahrenheit, depending on the state of the show_Celsius boolean variable. This variable is toggled each time the interrupt on digital pin 2 is triggered. The loop() function also includes some code to blink a symbol on the LCD display every 800 milliseconds.
+
+The Interrupt_Handling() function simply toggles the value of the show_Celsius boolean variable. This function is called each time a rising edge is detected on digital pin 2.
