@@ -22,7 +22,7 @@ Likewise, `digitalWrite(13,LOW)` Sets the logic Level LOW, or binary 0, turn the
 
 In this experiment we'll control the Breadboard LED using the 5Volts from the Arduino in a circuit like this:
 
-<img src="Images/led3.png" width="50%">
+<img src="Images/led3.png" width="30%">
 
 **Important** remember the LED need to be place in the correct way. **Tip**: the longer lead is the one which should be connected to VCC or the positive side.
 

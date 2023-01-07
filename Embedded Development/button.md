@@ -2,7 +2,7 @@
 
 In this experiment we'll control the Breadboard LED using the 5 Volts from the Arduino an a button in a circuit like this:
 
-<img src="Images/button4.png" width="50%">
+<img src="Images/button4.png" width="40%">
 
 Please, unplug your Arduino from USB and follow the illustration below to power an LED using the 5V from your breadboard's power pins and a button:
 
@@ -34,4 +34,6 @@ The **loop()** function is called repeatedly after the setup() function has comp
 
 This code will continuously check the state of pin A0 and turn the LED on or off accordingly. If the state of pin A0 changes, the LED will turn on or off accordingly as well.
 
-**To test at home** what if we wanted the opposite result? having the LED on at all times, except when the button is pressed?
+**To test at home** 
+1. What if we wanted the opposite result? having the LED on at all times, except when the button is pressed?
+1. Based on what you learned so far, make the LED stay ON for 5 seconds whenever you press the button.
