@@ -1,17 +1,19 @@
 # Using NeoPixels
 
-NeoPixels are Red, Green and Blue LEDs integrated in a single package that are normally used in a sequence in various formats. 
+NeoPixels are a type of individually addressable RGB LED that can be controlled with a microcontroller. They are often used to create colorful lighting displays or to add an element of interactivity to an electronic project. The term "NeoPixel" is trademarked by [Adafruit Industries](https://www.adafruit.com), which produces a line of NeoPixel products.
 
-The most interesting characteristic of a Neopixel is the fact we can determine is color and brightness individually, even if we have hundreds of them in a panel or strip. 
+NeoPixels are Red, Green and Blue LEDs integrated in a single package that are normally used in a sequence in various formats.
+
+The most interesting characteristic of a Neopixel is the fact we can determine is color and brightness individually, even if we have hundreds of them in a panel or strip.
 
 ![Distance sensor](../../Images/neopixels.png)
 
 Before we can use the Neopixels we’ll need to get an external library that enables it in the Arduino IDE.
 
 **Installing the library**:
-- Sketch/Include Library/Manage Libraries
-- Type neopixel (wait to results to load)
-- Select **Adafruit NeoPixel by Adafruit**
+- Select `Sketch/Include Library/Manage Libraries`
+- Type `neopixel` (wait to results to load)
+- Select `Adafruit NeoPixel by Adafruit`
 - Hit install
 
 Source: [Adafruit NeoPixel Uber Guide](https://learn.adafruit.com/adafruit-neopixel-uberguide?view=all)

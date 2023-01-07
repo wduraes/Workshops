@@ -33,3 +33,7 @@ Once the circuit above is completed, the LED should be blinking along with the o
 **Question** what if we wanted to blink an LED connected to Pin 9?
 
 **To test at home** with the LED connected to Pin 9, use the `file/examples/01.basics/fade` and see what happens to the LED.
+
+### Resistors: Color code table
+
+<img src="Images/resistor.png" width="100%">

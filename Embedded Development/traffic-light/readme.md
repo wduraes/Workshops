@@ -1,8 +1,8 @@
 # Simple traffic light
 
-This sample shows the implementation of a simple traffic light: it has a semaphore for cars (red, yellow and green) and another one for pedestrians who wish to cross the street (with green/whit and red lights).
+This sample shows the implementation of a traffic light: it has a semaphore for cars with red, yellow and green lights.
 
-This sample can be solved with several turn led on and off followed by delays, but implemented that way it becomes harder to read, understand and maintain. This is the reason this sample was implemented using a basic state machine. 
+
 
 The illustration below shows this state machine:
 
