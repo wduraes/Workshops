@@ -247,7 +247,12 @@ In my experience I had some failures in programming due to bad / misbehaving pro
 
 Adding Iot capabilities to this device now is only a matter of getting the proper firmware installed, given the native Wi-Fi capabilities of the ESP32.
 
-To test this board with Azure IoT, visit https://aka.ms/arduino to learn how to get the libraries and samples.
+To test this board with Azure IoT, there are several possibilities:
+
+1. How to connect the ESP32 to IoT Hub using Arduino IDE - [link](https://github.com/Azure/azure-sdk-for-c-arduino/tree/main/examples/Azure_IoT_Hub_ESP32)
+1. How to connect the ESP32 to IoT Hub and Azure Device Update (OTA) using Arduino IDE - [link](https://github.com/Azure/azure-sdk-for-c-arduino/tree/main/examples/Azure_IoT_Adu_ESP32)
+1. How to connect the ESP32 to IoT Hub using FreeRTOS [link](https://github.com/Azure-Samples/iot-middleware-freertos-samples/blob/main/demos/projects/ESPRESSIF/esp32)
+1. How to connect the ESP32 to IoT Hub and Azure Device Update (OTA) using FreeRTOS -[link](https://github.com/Azure-Samples/iot-middleware-freertos-samples/blob/main/demos/projects/ESPRESSIF/adu/README.md)
 
 ## Closing thoughts
 
