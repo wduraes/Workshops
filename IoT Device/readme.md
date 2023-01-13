@@ -204,6 +204,12 @@ The table below has all the parts used in this project. **All SMD parts are 0805
 
 **Assembly Guidance**
 
+1. Start by applying solder paste to the SMD parts pads. If you're using the solder mask, this should be easier and faster.
+1. Place all SMD parts following guidance below.
+1. Reflow ("Bake") the board.
+1. Check for any bridges in the solder before continuing.
+1. Place through hole components and solder them. the order is not important.
+
 <img src="../Images/guidance.png" width="100%">
 
 ## Testing the final product
