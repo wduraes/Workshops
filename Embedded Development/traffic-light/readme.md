@@ -2,11 +2,16 @@
 
 This sample shows the implementation of a traffic light: it has a semaphore for cars with red, yellow and green lights.
 
-
-
 The illustration below shows this state machine:
 
- ![Distance sensor](../../Images/state-machine.png)
+```mermaid
+stateDiagram-v2
+[*] --> GreenforCars+SolidRedforPeds
+GreenforCars+SolidRedforPeds --> YellowforCars+RedforPeds: PedButtonPresed
+YellowforCars+RedforPeds --> RedforCars+GreenforPeds:2Seconds
+RedforCars+GreenforPeds --> RedforCars+BlinkingRedforPeds:3Seconds
+RedforCars+BlinkingRedforPeds --> GreenforCars+SolidRedforPeds:2Seconds
+```
 
 ## Breadboard setup:
 
