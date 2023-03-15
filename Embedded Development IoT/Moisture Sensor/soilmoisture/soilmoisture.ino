@@ -8,8 +8,8 @@
 #define SCREEN_HEIGHT 32 // OLED display height, in pixels
 #define OLED_RESET  -1 // ESP32  4 // Reset pin # (or -1 if sharing Arduino reset pin)
 #define SCREEN_ADDRESS 0x3C ///< See datasheet for Address; 0x3D for 128x64, 0x3C for 128x32
-#define wet 520
-#define dry 740
+#define WET 520
+#define DRY 740
 
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
@@ -20,10 +20,10 @@ int getSoil(){
   int soil = analogRead(SOIL_PIN);
   //while the Analog Read varies from 0 to 1028, the sensor never gets
   //to extremes. So we need to manually setup the sensor with a complete
-  //dry sensor and another read with it under water
-  if(soil<wet) soil=wet;
-  if(soil>dry) soil=dry;
-  int soilMapped = map(soil,wet,dry,100,0);
+  //DRY sensor and another read with it under water
+  if(soil<WET) soil=WET;
+  if(soil>DRY) soil=DRY;
+  int soilMapped = map(soil,WET,DRY,100,0);
   return(soilMapped); 
 }
 

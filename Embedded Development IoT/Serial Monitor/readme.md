@@ -1,10 +1,16 @@
 ## Serial Monitor and the Arduino IDE
 
-Serial communication is one of the most common ways to check what is happening with your microcontorller (Arduino UNO, ESP8266 and pretty much any other MCU).
+Serial communication is one of the most common ways to check what is happening with your microcontroller (Arduino UNO, ESP8266 and pretty much any other MCU).
 
 It comes handy specially when you don't have a screen attached to your project.
 
-Use the modified version of Blink to see it in action:
+Your computer will need some Serial Communication software like the Arduino IDE (also Tera Term, Termite, Putty, etc.) a connection to your board (like a USB cable) and a serial to USB chip to allow communication.
+
+In the illustration below, we have the Arduino Uno board which has a USB-to-Serial chip.
+
+![Toolchain](../Images/serial.png)
+
+Use this modified version of Blink to see it in action:
 
 ```c
 void setup(){
@@ -29,7 +35,7 @@ You can select the serial communication speed in the Serial Monitor window in th
 
 ![Toolchain](../Images/serialmonitor.png)
 
-If all you see in the Serial Monitor is some sort of gibberish data like in the screen above, it is **very likely** you have th wrong speed settings. Note in this case the Serial Monitor is set to `115200 baud` but the code is set to 9600, in the `Serial.begin(9600);` line.
+If all you see in the Serial Monitor is some sort of gibberish data like in the screen above, it is **very likely** you have the wrong speed settings. Note in this case the Serial Monitor is set to `115200 baud` but the code is set to 9600, in the `Serial.begin(9600);` line.
 
 ## Quick reference guide to Serial
 
