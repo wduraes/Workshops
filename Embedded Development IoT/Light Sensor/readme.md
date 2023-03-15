@@ -53,40 +53,7 @@ It will show you your Username and Active Key. You need to copy both since we'll
 
 ## Get Light Sensor sample code
 
-Use the [light-sensor.ino](light-sensor/light-sensor.ino) sample code in this directory and click on the "Copy raw Contents" button at the top right of the code window.
-
-Find the definitions for Wi-Fi and Adafruit Credentials and replace them with your own:
-
-```C
-#define WLAN_SSID       "SSID"
-#define WLAN_PASS       "password"
-#define AIO_SERVER      "io.adafruit.com" //stays as it is
-#define AIO_USERNAME    "adafruit_username"
-#define AIO_KEY         "adafruit_key"
-```
-
-1. Save your code.
-1. Upload it to the dev kit.
-1. Open the serial monitor window to see the connection progress:
-
-```C
-...........
-WiFi connected
-IP address:
-10.127.12.7
-Connecting to MQTT... MQTT Connected!
-Sending light val 129...
-```
-
-Once you see this message in the Serial monitor, go to https://io.Adafruit.com, open your `Led Control` dashboard to see the data being published showing up on your stream block.
-
-Your device should be publishing light values now.
-
-**Attention** please note your Adafruit account only allows for 30 data points per minute, which means if you flip your led on and off more than 30 times you'll get your service throttled. 
-
-## Get Light Sensor + LED control sample code
-
-Use the [led-light.ino](led-light/led-light.ino) sample code below.
+Use the [led-light.ino](../LED-Light/light-sensor/light-sensor.ino) sample code below.
 
 ```c
 #include <ESP8266WiFi.h>
