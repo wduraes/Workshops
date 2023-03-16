@@ -22,7 +22,7 @@ The illustration below shows the connections:
 
 On the Arduino IDE go to menu `Sketch/Include Library/Manage Libraries`
 
-Type SSD1306, wait to see the results, click on `Adafruit SSD31306` by **Adafruit**, select the version 2.5.7 in the “Select Version” dropdown list, and then click Install. If it prompts you for additional libraries, please select “Install ALL” - see picture below.
+Type SSD1306, wait to see the results, click on `Adafruit SSD1306` by **Adafruit**, select the version 2.5.7 in the “Select Version” dropdown list, and then click Install. If it prompts you for additional libraries, please select “Install ALL” - see picture below.
 
 ![Toolchain](../Images/libraries.png)
 
