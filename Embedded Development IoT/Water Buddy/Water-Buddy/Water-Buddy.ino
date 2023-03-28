@@ -25,7 +25,7 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 #define AIO_SERVERPORT 1883
 
 #define TELEMETRY_FREQUENCY_MILLISECS 5000 //send telemetry data every 5 seconds
-#define DISPENSE_TIME_MILLISECS 3000       //will turn the water pump on for 3 seconds at a time 
+#define DISPENSE_TIME_MILLISECS 1000       //will turn the water pump on for 3 seconds at a time 
 #define WATER_FREQUENCY_MILLISECS 30000    //wait for 30 seconds before watering again to allow water to spread
 #define MINIMUM_MOISTURE 20    //define the minimum moisture level before start the water pump on. 
 
