@@ -15,11 +15,17 @@ The illustration below shows the device, the topics and the dashboard blocks nee
 
 ## Adafruit.IO: Create the Topics/Feeds and Dashboard elements
 
-Visit https://io.adafruit.com log in with your account and click on the top menu Feeds:
+Visit https://io.adafruit.com log in with your account.
 
-1. Create a new feed/topic: led
-1. Click on Dashboards and open the Dashboard: LED Control
-1. Add a toggle ON/OFF connected to the led topic
+Click on the top menu `Feeds`:
+
+1. Create a new feed/topic: `led`
+
+Click on the top menu `Dashboards`:
+
+1. Click on `LED Control` to access this dashboard
+1. Click on the top right cogwheel icon, then `create a new block` to:
+   1. Add a toggle ON/OFF connected to the `led` topic
 
 ## Breadboard Setup
 

@@ -20,16 +20,22 @@ The illustration below shows the device (WaterBuddy) and the needed MQTT Broker 
 
 ## Adafruit.IO: Create the Topics/Feeds and Dashboard elements
 
-Visit https://io.adafruit.com log in with your account and click on the top menu Feeds:
+Visit https://io.adafruit.com log in with your account.
 
-1. Create a new feed/topic: dispense
-1. Click on Dashboards and create a new Dashboard: WaterBuddy
-1. Add a stream connected to the dispense topic
-1. Create a new feed/topic: dispense-command
-1. Add a momentary button connected to this topic
-1. Create a new topic: soil-moisture
-1. Add a stream connected to this topic
-1. Add a line chart connected to this topic
+Click on the top menu `Feeds`:
+
+1. Create a new feed/topic: `dispense`
+1. Create a new feed/topic: `dispense-command`
+1. Create a new topic: `soil-moisture`
+
+Click on the top menu `Dashboards`:
+
+1. Create a new Dashboard `WaterBuddy`, and then click on `WaterBuddy` to access this dashboard
+1. Click on the top right cogwheel icon, then `create a new block` to:
+   1. Add a stream connected to the `dispense` topic
+   2. Add a momentary button connected to the `dispense-command` topic
+   3. Add a stream connected to the `soil-moisture` topic
+   4. Add a line chart connected to the `soil-moisture` topic
 
 ## Breadboard Setup
 
@@ -64,32 +70,15 @@ Find the definitions for Wi-Fi and Adafruit Credentials and replace them with yo
 Following Wi-Fi and Adafruit credentials, there are several `#define` which might need your attention:
 
 1. `TELEMETRY_FREQUENCY_MILLISECS` Initially adjusted for 5000 milliseconds (5 seconds). You can adjust it to any value, but remember that a free Adafruit account only allows for 30 data points per minute.
-1. `DISPENSE_TIME_MILLISECS` Initially set for 3 seconds, it defines for how long will the water pump be on every time the sensor detects the soil is under the specified threshold.
+1. `DISPENSE_TIME_MILLISECS` Initially set for 1 second, it defines for how long will the water pump be on every time the sensor detects the soil is under the specified threshold.
 1. `MINIMUM_MOISTURE` Initially set for 20%, defines the minimum bar for soil moisture before turning the water pump on. It will vary greatly depending on the type of the plant you have.
 1. `WATER_FREQUENCY_MILLISECS` Defined initially to 30 seconds, it defines for how long will the water pump wait for the water to spread, before turning on again.
 
-```C
-#define WLAN_SSID       "SSID"
-#define WLAN_PASS       "password"
-#define AIO_SERVER      "io.adafruit.com"
-#define AIO_USERNAME    "Username"
-#define AIO_KEY         "KEY"
+Get the code here: [Water-Buddy.ino](Water-Buddy/Water-Buddy.ino)
 
-#define TELEMETRY_FREQUENCY_MILLISECS 5000 //send telemetry data every 5 seconds
-#define DISPENSE_TIME_MILLISECS 3000       //will turn the water pump on for 3 seconds at a time 
-#define WATER_FREQUENCY_MILLISECS 30000    //wait for 30 seconds before watering again to allow water to spread
-#define MINIMUM_MOISTURE 20    //define the minimum moisture level before start the water pump on. 
-
-#define wet 520 //result of the calibration of your sensor for the lower threshold
-#define dry 740 //result of the calibration of your sensor for the upper threshold
-
-#define SOIL_PIN    A0  // pin connected to the soil moisture sensor
-#define PUMP_PIN    16   // pin connected to the water pump
-#define RED_LED     2  // pin connected to the red LED
-```
-
-1. Save your code.
-1. Upload it to the dev kit.
-1. Using the Arduino IDE open the serial monitor window
+1. Add your own credentials to it.
+2. Save your code.
+3. Upload it to the dev kit.
+4. Using the Arduino IDE open the serial monitor window
 
 Your device should be publishing light values and getting led commands now.

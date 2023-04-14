@@ -14,12 +14,18 @@ The illustration below shows the device, the topics and the dashboard blocks nee
 
 ## Adafruit.IO: Create the Topics/Feeds and Dashboard elements
 
-Visit https://io.adafruit.com log in with your account and click on the top menu Feeds:
+Visit https://io.adafruit.com log in with your account.
+
+Click on the top menu `Feeds`:
 
 1. Create a new feed/topic: `light`
-1. Click on Dashboards and create a new Dashboard: LED Control
-1. Add a stream connected to the `light` topic
-1. Add a line chart connected to the `light` topic
+
+Click on the top menu `Dashboards`:
+
+1. Create a new Dashboard `LED Control`, and then click on `LED Control` to access this dashboard
+1. Click on the top right cogwheel icon, then `create a new block` to:
+   1. Add a stream connected to the `light` topic
+   1. Add a line chart connected to the `light` topic
 
 ## Breadboard Setup
 
