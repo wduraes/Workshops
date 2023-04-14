@@ -11,7 +11,7 @@ It reefers to the use of programming languages and software tools to create soft
 **What are the advantages of studying embedded development?**
 
 1. **Career opportunities**: Embedded programming is a growing field with a wide range of career opportunities, including positions in industries such as automotive, aerospace, consumer electronics, and industrial automation.
-1. **Versatility**: Embedded programming skills can be applied to a wide variety of projects and industries, making it a versatile field to work in.
+1. **Versatility**: Embedded programming skills can be applied to a wide variety of projects and industries, making it a versatile field to work in. 
 1. **Demand for skilled workers**: There is a high demand for workers with skills in embedded programming, as more and more products are being developed with embedded systems.
 1. **The ability to create new products and solutions**: With the skills to program embedded systems, you can create innovative new products and solutions that solve real-world problems.
 1. **Job security**: The demand for skilled workers in embedded programming is expected to continue to grow in the coming years, providing job security for those with these skills.
@@ -80,9 +80,27 @@ The **delay** function is called between each digitalWrite function to pause the
 
 #### Another Blink Sample
 
-Arduino IDE has several examples of code for you to use. The one we just created is there too. 
+Arduino IDE has several examples of code for you to use. The one we just created is there too.
 
 Check: `file\examples\01.basics\blink`
+
+### A blink sample in 2 lines
+
+There are several ways to get LEDs blinking, and one of the shortest ones is the following: 
+
+```c
+void setup() 
+{
+pinMode(13, OUTPUT);
+}
+
+void loop() 
+{
+digitalWrite(13, !digitalRead(13));
+delay(1000);
+}
+
+```
 
 #### Important to Notice:
 
