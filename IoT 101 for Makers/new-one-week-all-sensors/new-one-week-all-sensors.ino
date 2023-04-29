@@ -8,7 +8,7 @@
 #define WLAN_PASS "password"
 #define AIO_SERVER "io.adafruit.com"
 #define AIO_USERNAME "wduraes"
-#define AIO_KEY "aio_uVcl50bl2Qu8ffl7pq81mYoscFhQ"
+#define AIO_KEY "aio_uVc0bl2Qu128ffl7pq81mYoscFhQ"
 #define AIO_SERVERPORT 1883
 #define TELEMETRY_FREQUENCY_MILLISECS 10000
 
