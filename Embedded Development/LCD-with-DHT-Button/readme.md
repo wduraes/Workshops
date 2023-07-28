@@ -4,6 +4,8 @@ This sample shows how to add a button to pin 3 which will control if the LCD dis
 
 It is a more advanced sample which uses an interrupt triggered by the button.
 
+**Important**: You'll need a 10K pull down resistor connected to Pin 3 to give it a reference, otherwise the button won't work. 
+
 ```c
 #include <LiquidCrystal.h>  
 #include <DHT.h>
@@ -51,7 +53,7 @@ void loop()
               lcd.setCursor(12, 0);
               lcd.print((char)223);   //223 is the degree symbol, from the ASCII table
               lcd.setCursor(13, 0);
-              lcd.print("C");
+              lcd.print("C  ");
           }
           else
           {
@@ -59,7 +61,7 @@ void loop()
               lcd.setCursor(12, 0);
               lcd.print((char)223);   //223 is the degree symbol, from the ASCII table
               lcd.setCursor(13, 0);
-              lcd.print("F");
+              lcd.print("F  ");
           }
     }
     
@@ -86,7 +88,13 @@ void loop()
 void Interrupt_Handling()
 {
   show_Celsius = !(show_Celsius);
-  delay(100);
+  resetDisplay();
+}
+
+void  resetDisplay(){
+  lcd.setCursor(0, 0);
+  lcd.print("Temp:           ");
+  delay(500);
 }
 
 ```

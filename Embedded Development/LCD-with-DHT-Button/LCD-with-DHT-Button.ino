@@ -44,7 +44,7 @@ void loop()
               lcd.setCursor(12, 0);
               lcd.print((char)223);   //223 is the degree symbol, from the ASCII table
               lcd.setCursor(13, 0);
-              lcd.print("C");
+              lcd.print("C  ");
           }
           else
           {
@@ -52,7 +52,7 @@ void loop()
               lcd.setCursor(12, 0);
               lcd.print((char)223);   //223 is the degree symbol, from the ASCII table
               lcd.setCursor(13, 0);
-              lcd.print("F");
+              lcd.print("F  ");
           }
     }
     
@@ -79,5 +79,11 @@ void loop()
 void Interrupt_Handling()
 {
   show_Celsius = !(show_Celsius);
-  delay(100);
+  resetDisplay();
+}
+
+void  resetDisplay(){
+  lcd.setCursor(0, 0);
+  lcd.print("Temp:           ");
+  delay(500);
 }
