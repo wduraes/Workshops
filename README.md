@@ -4,7 +4,7 @@ Hello, here you'll find all my workshop collateral. As a volunteer workshop host
 
 ### Snoco Makers Space
 
-Previously I taught most of this classes at the Snoco Maker Space in Everett-WA. I was proudly part of that amazing group of people for almost 5 years, and I couldn't recommend it more: friendly people and packed with tools. what else cold we want??
+Previously I taught most of this classes at the Snoco Maker Space in Everett-WA. I was proudly part of that amazing group of people for almost 5 years, and I couldn't recommend it more: friendly people and packed with tools. What more could we want??
 
 Check their workshops at: [https://www.meetup.com/SnoCo-Makers/events/](https://www.meetup.com/SnoCo-Makers/events/)
 
@@ -16,9 +16,9 @@ Here you'll find the [Arduino Barebones](Arduino%20Barebones/readme.md) which is
 
 ### Poway Adult School class
 
-Currently I'm volunteering with the [Poway Adult School](https://www.powayusd.com/en-US/Departments/CareerTechnicalAdultEd/PAS/Home) here in Sand Diego-CA. Classes are open to everyone living in the region and the cost include all parts needed. Since it is part of the Poway School District classes have very accessible prices.
+I did some volunteering with the [Poway Adult School](https://www.powayusd.com/en-US/Departments/CareerTechnicalAdultEd/PAS/Home) in Sand Diego-CA for a year. Classes were open to everyone living in the region and while I'm not teaching there anymore, they're still active with several other accessible trainings for the general population.
 
-## List of Workshops I can host
+## List of Workshops I host
 
 - Arduino 101
 - Arduino 102
